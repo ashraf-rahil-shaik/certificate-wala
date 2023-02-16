@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import img from "../images/Project_18-20.jpg"
 
 function App() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
-
+  const [text, setText] = useState('');
 
   const handleRegisterClick = () => {
     setShowDropdown(!showDropdown);
@@ -14,6 +14,14 @@ function App() {
     setSelectedOption(option);
     setShowDropdown(false);
   }
+ 
+   
+  
+    useEffect(() => {
+      const texts = ["Create Stunning Certificates in Seconds - Celebrate Success with Ease Using Our Online Generator!","Unlock the Power of Appreciation with Stunning Certificates Created in Seconds with Our Online Generator","Effortlessly Design Custom Certificates for Any Occasion with Our User-Friendly Generator","Recognize Achievement and Inspire Success with Personalized Certificates from Our Generator","Create Beautiful Certificates in Minutes with our Easy-to-Use Certificate Generator"];
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      setText(texts[randomIndex]);
+    }, []);
 
   return (
     <>
@@ -48,13 +56,15 @@ function App() {
       </div>
       
     </div>
-    <h1 className='caption'>"Create Stunning Certificates in Seconds - Celebrate Success with Ease Using Our Online Generator!"</h1>
+    <h1 className='caption'>"{text}!"</h1>
     <div className='img-container'>
       <img alt="certificate-pic" src={img}/>  
  
     <div>
       {selectedOption && (
+      
         <form className="register-form">
+          <h1>Register!</h1>
           <label>
             Name:
             <input type="text" />

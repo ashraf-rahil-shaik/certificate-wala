@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-/* background-color: rgb(54 86 251); */
+
 scrollbar-width: thin;
   scrollbar-color: #000000 #F5F5F5;
   
@@ -79,8 +79,9 @@ code {
  margin: 0px;
   height: 20vh;
   background-color: rgb(255, 255, 255);
-  
+  flex-wrap: wrap;
 }
+
 .register-button {
   padding: 0.5rem;
   border: 2px solid #FFA500;
@@ -90,7 +91,7 @@ code {
   color: #070707;
   cursor: pointer;
   position: relative;
-  right: 60px;
+  right: 84px;
 }
 
 .register-button:hover {
@@ -100,12 +101,12 @@ code {
 
 .dropdown {
   position: absolute;
-  top: 3rem;
+  top: 2.8rem;
   right: 0;
   z-index: 1;
   /* background-color: #fff; */
   border: 1px solid #000000;
-  border-top: none;
+  /* border-top: none; */
   transform: scale(1);
   display: flex;
   flex-direction: column;
