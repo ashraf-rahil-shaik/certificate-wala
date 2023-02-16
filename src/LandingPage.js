@@ -16,17 +16,18 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Welcome to My Landing Page</h1>
-      <form>
+    <>
+    <div className="login-container">
+      <h1 className='title'>Certificate wala</h1>
+      <form className='login'>
         <label>
-          Email:
-          <input type="email" />
+          Email
+          <input type="email" className='form-group' placeholder='email'/>
         </label>
         <br />
         <label>
-          Password:
-          <input type="password" />
+          Password
+          <input type="password"  className='form-group'placeholder='password'/>
         </label>
         <br />
         <button type="submit">Login</button>
@@ -34,7 +35,7 @@ function App() {
       <br />
       <div className="register-dropdown" onClick={handleRegisterClick}>
         <div className="register-button">
-          {selectedOption ? `Register as ${selectedOption}` : 'Register'}
+        Register
         </div>
         {showDropdown && (
           <div className="dropdown">
@@ -45,6 +46,12 @@ function App() {
           </div>
         )}
       </div>
+      
+    </div>
+    <div className='img-container'>
+      <img alt="certificate-pic" src='https://imgv3.fotor.com/images/videoImage/five-certificates-templates-from-Fotor.jpg' />  
+ 
+    <div>
       {selectedOption && (
         <form className="register-form">
           <label>
@@ -65,7 +72,9 @@ function App() {
           <button type="submit" className="register-submit-button">Register as {selectedOption}</button>
         </form>
       )}
-    </div>
+      </div>
+      </div>
+    </>
   );
 }
 
