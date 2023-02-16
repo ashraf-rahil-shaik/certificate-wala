@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-background-color: rgb(54 86 251);
+/* background-color: rgb(54 86 251); */
 scrollbar-width: thin;
   scrollbar-color: #000000 #F5F5F5;
   
@@ -25,27 +25,45 @@ body::-webkit-scrollbar-thumb:hover {
   
 }
 
+.caption{
+  width:550px;
+ position: relative;
+ left: 80px;
+ top: 70px;
+ color: #089ca1e5;
+ font-family: 'Prata', serif;
+}
 
+.title:hover{
+  color: rgb(62, 134, 202);
+}
 .img-container{
   display: flex;
-  width:600px;
-  height:600px;
-gap:100px;
-
+  width: 400px;
+  height:400px;
+gap:120px;
+  position: relative;
+  top: 30px;
 }
+img{
+  margin: 20px;
+  opacity: 0.8;
+ 
+}
+
 .title{
   display:block;
-  color: rgba(0, 0, 0, 0.911) ;
+  color: rgb(0, 0, 0) ;
   font-weight: 800;
 cursor:  pointer;
 position: relative;
-left:40px;  
-font-style: italic;
+left:70px;  
+
 }
 .App{
 
 
-margin: 20px;
+margin: 0px;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -59,13 +77,13 @@ code {
   justify-content: space-between;
   align-items: center;
  margin: 0px;
-  height: 25vh;
-  background-color: transparent;
+  height: 20vh;
+  background-color: rgb(255, 255, 255);
   
 }
 .register-button {
   padding: 0.5rem;
-  border: 2px solid #fcfcfc;
+  border: 2px solid #FFA500;
   border-radius: 0.25rem;
   font-size: 1.2rem;
   font-weight: bold;
@@ -76,7 +94,7 @@ code {
 }
 
 .register-button:hover {
-  border-color: #FFA500;
+  border-color: #3ed1c5c9;
 
 }
 
@@ -88,11 +106,30 @@ code {
   /* background-color: #fff; */
   border: 1px solid #000000;
   border-top: none;
-  
+  transform: scale(1);
   display: flex;
   flex-direction: column;
   align-items: center;
 
+}
+.dropdown:hover{
+  transform: scale(1.05); 
+}
+.dropdown{
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
 }
 
 .dropdown div {
@@ -100,16 +137,18 @@ code {
   padding: 0.5rem;
   width: 10rem;
   border: none;
-
+ 
   font-size: 1.2rem;
   font-weight: bold;
   color: #000000;
-  background-color: rgb(54 86 251);
+  background-color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
 .dropdown div:hover {
-  background-color: #FFA500;
+  background-color: #79d4d4;
+  color: #e0fbfc;
+
 }
 .certificate-form-container {
   max-width: 700px;
@@ -168,8 +207,8 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-  background-color: #b2caeb;
-  color:#000000;
+  background-color: #e0fbfc;
+  color:#293241;
 }
 
 .certificate-container {

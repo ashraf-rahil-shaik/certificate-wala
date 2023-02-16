@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import img from "../images/Project_18-20.jpg"
 
 function App() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -48,8 +48,9 @@ function App() {
       </div>
       
     </div>
+    <h1 className='caption'>"Create Stunning Certificates in Seconds - Celebrate Success with Ease Using Our Online Generator!"</h1>
     <div className='img-container'>
-      <img alt="certificate-pic" src='https://imgv3.fotor.com/images/videoImage/five-certificates-templates-from-Fotor.jpg' />  
+      <img alt="certificate-pic" src={img}/>  
  
     <div>
       {selectedOption && (
