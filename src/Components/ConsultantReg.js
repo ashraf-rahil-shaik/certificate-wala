@@ -1,7 +1,7 @@
 
 import React ,{useState} from 'react';
 
-function ConsultantRegister({ selectedOption }) {
+function ConsultantRegister() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -49,6 +49,7 @@ function ConsultantRegister({ selectedOption }) {
       />
       <input 
         className="input-field" 
+            
         type="text" 
         placeholder="Last Name" 
         value={lastName} 

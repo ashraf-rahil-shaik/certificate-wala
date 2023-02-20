@@ -1,6 +1,6 @@
 import React ,{useState} from 'react';
 
-function CompanyRegister({ selectedOption }) {
+const CompanyRegister=()=> {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ function CompanyRegister({ selectedOption }) {
 
   return (
     <div className="signup-page">
-     <h1 className="signup-page-title">Register as Company</h1>
+     <h1 className="signup-page-title">Register as Company </h1>
      {message && <p className="form-message">{message}</p>}
     <form className="form" onSubmit={handleSubmit}>
       <input 

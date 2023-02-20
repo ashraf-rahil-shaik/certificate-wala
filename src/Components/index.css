@@ -90,6 +90,7 @@ justify-content: space-between;
   align-items:center ;
   position: relative;
   bottom:200px;
+
 }
 
 .register-button {
@@ -109,18 +110,21 @@ justify-content: space-between;
 }
 
 .dropdown {
-  position: absolute;
-  top: 2.8rem;
-  right: 0;
-  z-index: 1;
-  /* background-color: #fff; */
-  border: 1px solid #000000;
-  /* border-top: none; */
+  position:absolute;
+  top:93%;
+  left:0;
+  right:0;
+  z-index:1;
+border-radius: 10px;
+
+  border: 1px solid #cabd06;
+  border-top: none;
   transform: scale(1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
+padding: 0;
+margin: 0;
 
 }
 .dropdown:hover{
@@ -143,22 +147,24 @@ justify-content: space-between;
     }
 }
 
-.dropdown Link {
-  
-  padding: 0.5rem;
+.links {
+  width:100%;
+  padding: 0.3rem;
   width: 10rem;
   border: none;
-
+text-decoration: none;
+color: #000000;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #000000;
-  background-color: rgb(255, 255, 255);
+margin: 0;
+  transform: scale(1);
   cursor: pointer;
 }
 
-.dropdown div:hover {
-  background-color: #79d4d4;
+.links:hover {
+  background-color: #14dac9;
   color: #e0fbfc;
+  transform: scale(1.25);
 
 }
 .certificate-form-container {
@@ -203,6 +209,7 @@ input[type='date'],input[type='email'],input[type='password']{
   border: none;
   margin-bottom: 10px;
   border:1px solid black;
+  
 }
 
 button[type='submit'] {
@@ -218,8 +225,8 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-  background-color: #e0fbfc;
-  color:#293241;
+  background-color: #503351;
+  color:#ffffff;
 }
 
 .certificate-container {
@@ -330,7 +337,7 @@ button:hover {
   border-radius: 10px;
   }
   
-  .form-input {
+  /* .form-input {
   margin-top: 20px;
   padding: 10px;
   width: 50%;
@@ -338,9 +345,9 @@ button:hover {
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  }
+  } */
   
-  .submit-button {
+  /* .submit-button {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: rgb(13, 147, 165);
@@ -349,7 +356,7 @@ button:hover {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  }
+  } */
   
   .message {
   margin-top: 20px;
@@ -363,16 +370,16 @@ button:hover {
     padding: 1em;
   }
   
-  .form-input {
+  /* .form-input {
     width: 100%;
     padding: 0.5em;
     margin-bottom: 1em;
     border: 1px solid gray;
     border-radius: 5px;
     font-size: 1em;
-  }
+  } */
   .input-field {
-    width: 300px;
+    width: 300px; 
     height: 40px;
     padding: 10px;
     margin-bottom: 20px;

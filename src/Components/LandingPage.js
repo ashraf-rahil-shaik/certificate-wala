@@ -46,19 +46,19 @@ console.log(selectedOption)
               <div className='login-reg'>
              <Login />
    
-              <h4>(or)</h4>
+              <h4>don't have an account yet!  </h4>
               <div className="register-dropdown" onClick={handleRegisterClick}>
                 <div className="register-button">Register</div>
                 </div>
                 {showDropdown && (
                   <div className="dropdown">
-                    <Link to="/company" onClick={() => handleOptionSelect('company')}>
+                    <Link to="/company" className='links'onClick={() => handleOptionSelect('company')}>
                       Company
                     </Link>
-                    <Link to="/school-college" onClick={() => handleOptionSelect('school-college')}>
+                    <Link to="/school-college" className='links' onClick={() => handleOptionSelect('school-college')}>
                       School/College
                     </Link>
-                    <Link to="/consultant" onClick={() => handleOptionSelect('consultant')}>
+                    <Link to="/consultant" className='links' onClick={() => handleOptionSelect('consultant')}>
                       Consultant
                     </Link>
                   </div>

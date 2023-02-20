@@ -1,6 +1,6 @@
 import React ,{useState} from 'react';
 
-function CollegeRegister({ selectedOption }) {
+const CollegeRegister=()=> {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
