@@ -89,7 +89,7 @@ justify-content: space-between;
   justify-content: center;
   align-items:center ;
   position: relative;
-  bottom:200px;
+  bottom:280px;
 
 }
 
@@ -111,7 +111,7 @@ justify-content: space-between;
 
 .dropdown {
   position:absolute;
-  top:93%;
+  top:98%;
   left:0;
   right:0;
   z-index:1;
@@ -162,9 +162,9 @@ margin: 0;
 }
 
 .links:hover {
-  background-color: #14dac9;
+  background-color: #5fbbb3da;
   color: #e0fbfc;
-  transform: scale(1.25);
+  transform: scale(1.15);
 
 }
 .certificate-form-container {
@@ -179,8 +179,7 @@ margin: 0;
   flex-direction: column;
  
   align-items: center;
-
-  align-items: center;
+ align-content: space-between;
 }
 
 
@@ -191,7 +190,7 @@ margin: 0;
   margin-bottom: 10px;
   gap: 10px;
   justify-content: center;
-  
+  align-items: center;
 }
 
 label {
@@ -366,7 +365,7 @@ button:hover {
   .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+   align-items: center;
     padding: 1em;
   }
   
