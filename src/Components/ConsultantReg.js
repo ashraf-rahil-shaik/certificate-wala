@@ -1,5 +1,6 @@
 
 import React ,{useState} from 'react';
+import Header from './Header';
 
 function ConsultantRegister() {
   const [firstName, setFirstName] = useState('');
@@ -36,6 +37,8 @@ function ConsultantRegister() {
   };
 
   return (
+    <>
+    <Header />
     <div className="signup-page">
      <h1 className="signup-page-title">Register as Consultant</h1>
      {message && <p className="form-message">{message}</p>}
@@ -87,6 +90,7 @@ function ConsultantRegister() {
       {/* {message && <p className="form-message">{message}</p>} */}
     </form>
 </div>
+</>
   );
 };
 

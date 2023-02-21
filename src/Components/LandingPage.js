@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import img from '../images/Project_18-20.jpg';
 import { Link} from 'react-router-dom';
 import Login from './Login';
+import Header from './Header';
+
 
 
 
@@ -51,12 +53,7 @@ console.log(selectedOption)
 
   return (
   <>
-
-            <div className="login-container">
-              <Link to='/' className="title">Certificate wala</Link>
-                     
-            
-            </div>
+        <Header/>
             <h1 className="caption">"{text}!"</h1>
             <div className="img-container">
               <img alt="certificate-pic" src={img} />

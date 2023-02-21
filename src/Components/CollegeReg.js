@@ -1,4 +1,5 @@
 import React ,{useState} from 'react';
+import Header from './Header';
 
 const CollegeRegister=()=> {
   const [firstName, setFirstName] = useState('');
@@ -35,7 +36,10 @@ const CollegeRegister=()=> {
   };
 
   return (
+  <>
+          <Header/>
     <div className="signup-page">
+
      <h1 className="signup-page-title">Register as School/College</h1>
      {message && <p className="form-message">{message}</p>}
     <form className="form" onSubmit={handleSubmit}>
@@ -85,6 +89,7 @@ const CollegeRegister=()=> {
       {/* {message && <p className="form-message">{message}</p>} */}
     </form>
 </div>
+</>
   );
 };
 

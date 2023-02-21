@@ -1,4 +1,5 @@
 import React ,{useState} from 'react';
+import Header from './Header';
 
 const CompanyRegister=()=> {
   const [firstName, setFirstName] = useState('');
@@ -35,6 +36,8 @@ const CompanyRegister=()=> {
   };
 
   return (
+    <>
+    <Header/>
     <div className="signup-page">
      <h1 className="signup-page-title">Register as Company </h1>
      {message && <p className="form-message">{message}</p>}
@@ -85,7 +88,7 @@ const CompanyRegister=()=> {
       {/* {message && <p className="form-message">{message}</p>} */}
     </form>
 </div>
-  );
+</>  );
 };
 
 export default CompanyRegister;

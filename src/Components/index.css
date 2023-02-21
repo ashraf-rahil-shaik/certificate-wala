@@ -26,16 +26,16 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .caption{
-  width:550px;
+  width:630px;
  position: relative;
  left: 80px;
- top: 50px;
+ top: 30px;
  color: #089ca1e5;
  font-family: 'Prata', serif;
 }
 
 .title:hover{
-  color: rgb(62, 134, 202);
+ transform: scale(1.05);
 }
 .img-container{
   display: flex;
@@ -43,23 +43,30 @@ body::-webkit-scrollbar-thumb:hover {
   height:400px;
 gap:120px;
   position: relative;
-  top: 30px;
+  top: 20px;
 }
 img{
-  margin: 20px;
-  opacity: 0.8;
- 
+  margin: 10px;
+ padding: 0;
+ position: relative;
+ bottom: 20px;
 }
 
 .title{
   display:block;
-  color: rgb(0, 0, 0) ;
+  background: #d87c12; 
+  background: -webkit-linear-gradient(to right, #ecad23, #32bacc); 
+  background: linear-gradient(to right, #fd9301, #00748d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-weight: 800;
 cursor:  pointer;
 position: relative;
 left:70px;  
 text-decoration: none;
 font-size: 2rem;
+transform: scale(1);
 }
 .App{
 
@@ -75,12 +82,13 @@ code {
 }
 .login-container{
   display: flex;
-
-justify-content: space-between;
+  background-image: linear-gradient(220deg, #FFFEFF 0%, #dbfdfdc4 100%);
+justify-content:space-between;
   align-items: center;
  margin: 0px;
-  height: 20vh;
-  background-color: rgb(255, 255, 255);
+  height: 15vh;
+ 
+ 
   flex-wrap: wrap;
 }
 .login-reg{
@@ -89,8 +97,8 @@ justify-content: space-between;
   justify-content: center;
   /* align-items:center ; */
   position: relative;
-  bottom:270px;
-  right: 30px;
+  bottom:180px;
+  right: 25px;
 
 }
 
@@ -171,7 +179,7 @@ margin: 0;
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(212, 212, 212, 0.267);
+  background-color: rgba(255, 255, 255, 0.226);
 }
 .login{
   display: flex;
@@ -223,7 +231,7 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-  background-color: #503351;
+  background-color: #06a2b8;
   color:#ffffff;
 }
 
@@ -296,7 +304,7 @@ button[type='submit']:hover {
 input[type="date"] {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #817f7f;
   font-size: 18px;
   outline: none;
   font-style: italic;
@@ -335,26 +343,7 @@ button:hover {
   border-radius: 10px;
   }
   
-  /* .form-input {
-  margin-top: 20px;
-  padding: 10px;
-  width: 50%;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  } */
-  
-  /* .submit-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: rgb(13, 147, 165);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  } */
+ 
   
   .message {
   margin-top: 20px;

@@ -82,4 +82,4 @@ and recognizing their exceptional skills and dedication during their time with u
 </div>
 );
 }
-export default CertificateForm
+export default CertificateForm;
