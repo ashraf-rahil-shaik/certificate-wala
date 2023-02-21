@@ -1,21 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const Navigate = useNavigate()
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
-
     event.preventDefault();
-
     if (username === 'admin' && password === 'password') {
       setError('logged in');
-     Navigate('/Certificate')
+      navigate('/Certificate');
     } else {
       setError('Incorrect username or password');
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (error && event.target.className !== 'error-message') {
+        setError('');
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [error]);
 
   return (
     <div className="login-page">
@@ -36,7 +50,7 @@ const Login = () => {
           onChange={(event) => setPassword(event.target.value)}
           className="input-field"
         />
-        <button  type="submit" className="submit-button-1">
+        <button type="submit" className="submit-button-1">
           Login
         </button>
       </form>

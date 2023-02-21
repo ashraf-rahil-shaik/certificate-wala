@@ -5,7 +5,7 @@ import Login from './Login';
 
 
 
-function App() {
+function LandingPage() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [text, setText] = useState('');
@@ -18,11 +18,29 @@ console.log(selectedOption)
     setSelectedOption(option);
     setShowDropdown(false);
   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const dropdown = document.querySelector('.dropdown');
+      const registerButton = document.querySelector('.register-button');
+      if (dropdown && !dropdown.contains(event.target) && !registerButton.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+  
+    // add event listener to document object
+    document.addEventListener('click', handleClickOutside);
+  
+    // cleanup function to remove event listener
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showDropdown]);
+
 
   useEffect(() => {
     const texts = [
       'Create Stunning Certificates in Seconds - Celebrate Success with Ease Using Our Online Generator!',
-      'Unlock the Power of Appreciation with Stunning Certificates Created in Seconds with Our Online Generator',
+      'Unlock the Power oLandingPagereciation with Stunning Certificates Created in Seconds with Our Online Generator',
       'Effortlessly Design Custom Certificates for Any Occasion with Our User-Friendly Generator',
       'Recognize Achievement and Inspire Success with Personalized Certificates from Our Generator',
       'Create Beautiful Certificates in Minutes with our Easy-to-Use Certificate Generator'
@@ -71,4 +89,4 @@ console.log(selectedOption)
   );
 }
 
-export default App;
+export default LandingPage;

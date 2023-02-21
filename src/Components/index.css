@@ -87,9 +87,10 @@ justify-content: space-between;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center ;
+  /* align-items:center ; */
   position: relative;
-  bottom:280px;
+  bottom:270px;
+  right: 30px;
 
 }
 
@@ -111,7 +112,7 @@ justify-content: space-between;
 
 .dropdown {
   position:absolute;
-  top:98%;
+  top:100%;
   left:0;
   right:0;
   z-index:1;
@@ -162,9 +163,8 @@ margin: 0;
 }
 
 .links:hover {
-  background-color: #5fbbb3da;
-  color: #e0fbfc;
-  transform: scale(1.15);
+ 
+  transform: scale(1.05);
 
 }
 .certificate-form-container {
@@ -189,8 +189,7 @@ margin: 0;
   flex-direction: column;
   margin-bottom: 10px;
   gap: 10px;
-  justify-content: center;
-  align-items: center;
+ 
 }
 
 label {
@@ -207,7 +206,7 @@ input[type='date'],input[type='email'],input[type='password']{
   border-radius: 5px;
   border: none;
   margin-bottom: 10px;
-  border:1px solid black;
+  border:1px solid rgb(116, 108, 108);
   
 }
 
@@ -247,7 +246,7 @@ button[type='submit']:hover {
   font-weight: bold;
   margin: 0;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #000000;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px 10px 0 0;
@@ -323,7 +322,7 @@ button {
 }
 
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 
@@ -369,16 +368,17 @@ button:hover {
     padding: 1em;
   }
   
-  /* .form-input {
+  .form-input {
     width: 100%;
     padding: 0.5em;
     margin-bottom: 1em;
     border: 1px solid gray;
     border-radius: 5px;
     font-size: 1em;
-  } */
+  } 
+
   .input-field {
-    width: 300px; 
+    width: 250px; 
     height: 40px;
     padding: 10px;
     margin-bottom: 20px;

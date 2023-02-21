@@ -8,7 +8,6 @@ function App() {
     <>
     <div className="App">
 
-
 {/* <CertificateForm/> */}
 <Routes>
                 <Route path='/' element ={<LandingPage/>} />
