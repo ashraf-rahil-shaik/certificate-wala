@@ -179,7 +179,8 @@ margin: 0;
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.226);
+  background-color: rgb(255, 255, 255);
+
 }
 .login{
   display: flex;
@@ -237,36 +238,43 @@ button[type='submit']:hover {
 
 .certificate-container {
   margin-top: 20px;
-  height: 842px;
+  height: 535px;
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 595px;
+
+  width: 842px;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+align-content: space-between;
 }
 
-.header-container {
-  text-align: center;
-}
+
 
 .header-container h2 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
+  height: 50%;
   text-transform: uppercase;
   color: #000000;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px 10px 0 0;
+  background-color: #1c0fcc;
+  text-align: center;
+display: flex;
+align-items: center;
+
 }
 
 .content-container {
   display: flex;
   justify-content: center;
   align-items: center;
+ position: relative;
   margin-top: 20px;
-  font-size: 16px;
-  line-height: 1.5;
+  top:60%;
+  font-size: 20px;
+  line-height: 2;
 }
 
 @media print {

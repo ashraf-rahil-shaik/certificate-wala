@@ -24,8 +24,7 @@ function CertificateForm() {
 
   const getDaysBetweenDates = (startDate, endDate) => {
     const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
-    const firstDate = new Date(startDate);
-    const secondDate = new Date(endDate);
+    const [firstDate, secondDate] = [new Date(startDate), new Date(endDate)];
 
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
   };
@@ -70,12 +69,13 @@ function CertificateForm() {
         <div className="certificate-container">
           <div className="header-container">
             <h2>{company}</h2>
-          </div>
+     
           <div className="content-container">
             <p>
               This certificate is presented to {salutation} {name} for the successful completion of an internship in {stream} from {startDate.split("-").reverse().join('/')}
 to {endDate.split("-").reverse().join("/")}. The intern has completed {getDaysBetweenDates(startDate, endDate)} days of training.
 and recognizing their exceptional skills and dedication during their time with us. Congratulations on your achievement! </p>
+</div>
 </div>
 </div>
 )}
