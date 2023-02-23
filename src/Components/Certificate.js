@@ -1,6 +1,43 @@
 import React, { useState } from "react";
 
 
+
+function SignatureUpload() {
+  const [signature, setSignature] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 5000000) {
+      setErrorMessage('File size must be less than 5MB');
+      setSignature(null);
+    } else {
+      setSignature(file);
+      setErrorMessage('');
+    }
+  };
+
+  return (
+    <div className="signature-upload-container">
+      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature:</label>
+      <input
+        type="file"
+        id="signature-upload"
+        accept="image/*"
+        onChange={handleFileUpload}
+      />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {signature && (
+        <div className="signature-preview-container">
+          <p>Uploaded signature:</p>
+          <img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 function CertificateForm() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
@@ -9,6 +46,7 @@ function CertificateForm() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,6 +93,7 @@ function CertificateForm() {
           <label htmlFor="stream">Stream *</label>
           <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
         </div>
+       <SignatureUpload />
         <div className="form-group">
           <label htmlFor="start-date">Course Start Date *</label>
           <input id="start-date" type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} required />
@@ -76,6 +115,7 @@ function CertificateForm() {
 to {endDate.split("-").reverse().join("/")}. The intern has completed {getDaysBetweenDates(startDate, endDate)} days of training.
 and recognizing their exceptional skills and dedication during their time with us. Congratulations on your achievement! </p>
 </div>
+
 </div>
 </div>
 )}

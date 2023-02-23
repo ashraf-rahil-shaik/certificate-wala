@@ -87,8 +87,6 @@ justify-content:space-between;
   align-items: center;
  margin: 0px;
   height: 15vh;
- 
- 
   flex-wrap: wrap;
 }
 .login-reg{
@@ -319,8 +317,16 @@ input[type="date"] {
   font-weight: 200;
 } 
 
-
-
+input[type = "file"]{
+  display: none;
+}
+.labelSign{
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: rgb(61, 161, 185);
+}
 
  .signup-page {
   display: flex;
@@ -390,4 +396,16 @@ button:hover {
     margin-top: 1em;
     font-size: 1em;
     color: rgb(12, 10, 76);
+  }
+  .signature-upload-container {
+    margin: 10px;
+  }
+  
+  .signature-preview-container {
+    margin-top: 10px;
+  }
+  
+  .signature-preview {
+    max-width: 200px;
+    max-height: 50px;
   }
