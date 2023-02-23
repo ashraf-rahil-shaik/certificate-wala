@@ -19,7 +19,7 @@ function SignatureUpload() {
 
   return (
     <div className="signature-upload-container">
-      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature:</label>
+      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature</label>
       <input
         type="file"
         id="signature-upload"
@@ -45,6 +45,7 @@ function CertificateForm() {
   const [stream, setStream] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+    
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
  
 
