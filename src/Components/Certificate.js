@@ -2,10 +2,24 @@ import React, { useState } from "react";
 
 
 
-function SignatureUpload() {
+function CertificateForm() {
+  const [name, setName] = useState("");
+  const [salutation, setSalutation] = useState("");
+  const [company, setCompany] = useState("");
+  const [stream, setStream] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [signature, setSignature] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!name || !company || !stream || !startDate || !endDate) {
+      alert("Please fill all required fields.");
+      return;
+    }
+    setIsCertificateVisible(true);
+  };
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file.size > 5000000) {
@@ -16,58 +30,12 @@ function SignatureUpload() {
       setErrorMessage('');
     }
   };
-
-  return (
-    <div className="signature-upload-container">
-      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature</label>
-      <input
-        type="file"
-        id="signature-upload"
-        accept="image/*"
-        onChange={handleFileUpload}
-      />
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {signature && (
-        <div className="signature-preview-container">
-          <p>Uploaded signature:</p>
-          <img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
-        </div>
-      )}
-    </div>
-  );
-}
-
-
-function CertificateForm() {
-  const [name, setName] = useState("");
-  const [salutation, setSalutation] = useState("");
-  const [company, setCompany] = useState("");
-  const [stream, setStream] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-    
-  const [isCertificateVisible, setIsCertificateVisible] = useState(false);
- 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Check if all required fields are filled
-    if (!name || !company || !stream || !startDate || !endDate) {
-      alert("Please fill all required fields.");
-      return;
-    }
-
-    setIsCertificateVisible(true);
-  };
-
   const getDaysBetweenDates = (startDate, endDate) => {
     const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
     const [firstDate, secondDate] = [new Date(startDate), new Date(endDate)];
 
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
   };
-
   return (
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
@@ -85,7 +53,6 @@ function CertificateForm() {
           <label htmlFor="name">Full Name *</label>
           <input id="name" type="text" value={name} onChange={(event) => setName(event.target.value)} required />
         </div>
-        
         <div className="form-group">
           <label htmlFor="company">Company Name *</label>
           <input id="company" type="text" value={company} onChange={(event) => setCompany(event.target.value)} required />
@@ -94,7 +61,22 @@ function CertificateForm() {
           <label htmlFor="stream">Stream *</label>
           <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
         </div>
-       <SignatureUpload />
+        <div className="signature-upload-container">
+      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature</label>
+      <input
+        type="file"
+        id="signature-upload"
+        accept="image/*"
+        onChange={handleFileUpload}
+      />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {signature && (
+        <div className="signature-preview-container">
+          <p>Uploaded signature:</p>
+          <img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
+        </div>
+      )}
+    </div>
         <div className="form-group">
           <label htmlFor="start-date">Course Start Date *</label>
           <input id="start-date" type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} required />
@@ -109,14 +91,14 @@ function CertificateForm() {
         <div className="certificate-container">
           <div className="header-container">
             <h2>{company}</h2>
-     
+           
           <div className="content-container">
             <p>
               This certificate is presented to {salutation} {name} for the successful completion of an internship in {stream} from {startDate.split("-").reverse().join('/')}
 to {endDate.split("-").reverse().join("/")}. The intern has completed {getDaysBetweenDates(startDate, endDate)} days of training.
 and recognizing their exceptional skills and dedication during their time with us. Congratulations on your achievement! </p>
+<img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
 </div>
-
 </div>
 </div>
 )}
