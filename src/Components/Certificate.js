@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Header2 from "./Header2";
 
 
 function CertificateForm() {
@@ -37,6 +37,8 @@ function CertificateForm() {
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
   };
   return (
+    <>
+    <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
         <h2>Internship Certificate Generator</h2>
@@ -103,6 +105,7 @@ and recognizing their exceptional skills and dedication during their time with u
 </div>
 )}
 </div>
+</>
 );
 }
 export default CertificateForm;

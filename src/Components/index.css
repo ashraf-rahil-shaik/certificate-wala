@@ -389,9 +389,7 @@ button:hover {
     border: 1px solid lightgray;
     border-radius: 5px;
   }
-  
- 
-  
+
   .form-message {
     margin-top: 1em;
     font-size: 1em;
@@ -399,13 +397,19 @@ button:hover {
   }
   .signature-upload-container {
     margin: 10px;
-  }
+  } 
   
   .signature-preview-container {
     margin-top: 10px;
   }
-  
+
   .signature-preview {
-    max-width: 200px;
+    max-width: 200px; 
     max-height: 50px;
+  }
+  .menu{
+    display: flex;
+   cursor: pointer;
+    justify-content: space-evenly;
+    width: 450px;
   }
