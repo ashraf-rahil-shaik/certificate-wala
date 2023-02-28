@@ -68,8 +68,11 @@ text-decoration: none;
 font-size: 2rem;
 transform: scale(1);
 }
-.App{
 
+.App{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap ;
 
 margin: 0px;
 }
@@ -97,7 +100,7 @@ justify-content:space-between;
   position: relative;
   bottom:180px;
   right: 25px;
-
+flex-wrap: wrap;
 }
 
 .register-button {
@@ -184,7 +187,7 @@ margin: 0;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
- 
+ flex-wrap: wrap;
   align-items: center;
  align-content: space-between;
 }

@@ -52,7 +52,8 @@ console.log(selectedOption)
   }, []);
 
   return (
-  <>
+  <div className='login-page'>
+  
         <Header/>
             <h1 className="caption">"{text}!"</h1>
             <div className="img-container">
@@ -81,7 +82,7 @@ console.log(selectedOption)
               </div>
             </div>
    
- </>
+ </div>
 
   );
 }
