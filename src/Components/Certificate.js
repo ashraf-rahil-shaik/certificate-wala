@@ -1,40 +1,37 @@
 import React, { useState } from "react";
 import Header2 from "./Header2";
-
-
+import img from "../images/logo.png"
+import jsPDF from "jspdf";
+import html2canvas from 'html2canvas';
+import "./Certificate.css"
 function CertificateForm() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
-  const [company, setCompany] = useState("");
+  const [representative,setRepresentative] =useState("")
   const [stream, setStream] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
-  const [signature, setSignature] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+
+  
+  const downloadCertificate = () => {
+    const certificateContainer = document.querySelector(".certificate-container");
+  
+    // Use html2canvas to generate a canvas element from the certificate content
+    html2canvas(certificateContainer, { backgroundColor: "#fff" }).then((canvas) => {
+      // Use jsPDF to create a new PDF document and add the canvas to it
+      const pdf = new jsPDF();
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+  
+      // Use the jsPDF save method to trigger a download of the PDF file
+      pdf.save("certificate.pdf");
+    });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!name || !company || !stream || !startDate || !endDate) {
+    if (!name || !stream ||!representative ) {
       alert("Please fill all required fields.");
       return;
     }
     setIsCertificateVisible(true);
-  };
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    if (file.size > 5000000) {
-      setErrorMessage('File size must be less than 5MB');
-      setSignature(null);
-    } else {
-      setSignature(file);
-      setErrorMessage('');
-    }
-  };
-  const getDaysBetweenDates = (startDate, endDate) => {
-    const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
-    const [firstDate, secondDate] = [new Date(startDate), new Date(endDate)];
-
-    return Math.round(Math.abs((firstDate - secondDate) / oneDay));
   };
   return (
     <>
@@ -42,13 +39,15 @@ function CertificateForm() {
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
         <h2>Internship Certificate Generator</h2>
+        
+      
         <div className="form-group">
           <label htmlFor="salutation">Salutation</label>
           <select id="salutation" value={salutation} onChange={(event) => setSalutation(event.target.value)}>
-            <option value="">Select salutation</option>
-            <option value="Mr.">Mr.</option>
-            <option value="Ms.">Ms.</option>
-            <option value="Mrs.">Mrs.</option>
+            <option value="">Course</option>
+            <option value="Mr.">IT</option>
+            <option value="Ms.">NON-IT</option>
+            <option value="Mrs.">Management</option>
           </select>
         </div>
         <div className="form-group">
@@ -56,55 +55,64 @@ function CertificateForm() {
           <input id="name" type="text" value={name} onChange={(event) => setName(event.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="company">Company Name *</label>
-          <input id="company" type="text" value={company} onChange={(event) => setCompany(event.target.value)} required />
+          <label htmlFor="name">representative*</label>
+          <input id="representative" type="text" value={representative} onChange={(event) => setRepresentative(event.target.value)} required />
         </div>
+       
         <div className="form-group">
           <label htmlFor="stream">Stream *</label>
           <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
-        </div>
-        <div className="signature-upload-container">
-      <label htmlFor="signature-upload" className="labelSign">Upload your digital signature</label>
-      <input
-        type="file"
-        id="signature-upload"
-        accept="image/*"
-        onChange={handleFileUpload}
-      />
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {signature && (
-        <div className="signature-preview-container">
-          <p>Uploaded signature:</p>
-          <img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
-        </div>
-      )}
-    </div>
-        <div className="form-group">
-          <label htmlFor="start-date">Course Start Date *</label>
-          <input id="start-date" type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="end-date">Course End Date *</label>
-          <input id="end-date" type="date" value={endDate} onChange={(event) => setEndDate(event.target.value)} required />
         </div>
         <button type="submit">Generate Certificate</button>
       </form>
       {isCertificateVisible && (
         <div className="certificate-container">
           <div className="header-container">
-            <h2>{company}</h2>
-           
+  <img src={img} alt="logo" />
+  </div>
+  <h2>internship acceptance letter</h2>
+  <h4>Date: 23 Mar 2023</h4>
+           <h4>Dear {name}</h4>
           <div className="content-container">
             <p>
-              This certificate is presented to {salutation} {name} for the successful completion of an internship in {stream} from {startDate.split("-").reverse().join('/')}
-to {endDate.split("-").reverse().join("/")}. The intern has completed {getDaysBetweenDates(startDate, endDate)} days of training.
-and recognizing their exceptional skills and dedication during their time with us. Congratulations on your achievement! </p>
-<img className="signature-preview" src={URL.createObjectURL(signature)} alt="uploaded signature" />
+            We are pleased to confirm your acceptance of an internship as System Engineer Intern in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.
+</p>
+<ul>
+<li>Introduction to C Language</li>
+<li>C Control Statements</li>
+<li>C Functions</li>
+<li>C Array</li>
+<li>C Pointers</li>
+<li>C Dynamic Memory</li>
+<li>C Strings</li>
+<li>C Math</li>
+<li>C Structure Union</li>
+<li>C File Handling</li>
+<li>C Pre processor</li>
+<li>C Command Line</li>
+<li>C Misc.</li>
+<li>C Programs</li>
+<li>Working on the development of the frameworks
+</li>
+</ul>
+<p>
+Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. 
+
+If you have any questions, please feel free to contact supervisor’s allocated at work. We are please you’ve decided to join TriaRight Solutions LLP.
+ </p>
+<p>Sincerely,</p>
+<p>{representative}</p>
+<p>Company representative
+</p>
+<footer>
+  <p>#7-1-58, 404 B, 4th floor, Surekha Chambers, Ameerpet, 	</p>
+</footer>
 </div>
-</div>
+
 </div>
 )}
 </div>
+<button onClick={downloadCertificate}>Download PDF</button>
 </>
 );
 }
