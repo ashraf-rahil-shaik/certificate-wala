@@ -3,9 +3,8 @@ import Header2 from "./Header2";
 import img from "../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css";
-import {Link} from 'react-router-dom'
-function CertificateForm() {
+import "./Certificate.css"
+function CloudComputing() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
@@ -36,7 +35,7 @@ function CertificateForm() {
   };
   return (
     <>
-    <Header2 />
+    <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
@@ -123,8 +122,7 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 )}
 </div>
 <button onClick={downloadCertificate}>Download PDF</button>
-<Link to="/cloudcomputing"> cloudcomputing</Link>
 </>
 );
 }
-export default CertificateForm;
+export default CloudComputing;

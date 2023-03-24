@@ -1,16 +1,17 @@
 
 .certificate-container {
-    margin-top: 20px;
+    
     position: relative;
     height: 842px;
+    
     background-color: #FFFFFF;
     border-radius: 10px;
-    width: 755px;
+    width: 595px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-content: space-between;
-  margin: 30px;
+  padding: 30px;
   background-image:url('../images/watermarkImage.png');
   background-repeat:no-repeat;
 
@@ -24,8 +25,8 @@
  
   
   .header-container {
+ margin-top: 5px;
  
- margin-top: 20PX;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -34,8 +35,28 @@
     opacity: 40%;
  } 
   p{
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 400;
   }
+.footer p{
+color: #817f7fd9;
+line-height: 0;
+font-size: 12px;
+}
+.footer{
+  height: 10vh;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+li{
+  font-size: 13px;
+ padding-left: 10px;
+  font-weight: 400;
+  list-style: none;
+}
+
   @media print {
     body * {
       visibility: hidden;
@@ -77,3 +98,16 @@
     font-style: italic;
     font-weight: 200;
   } 
+
+
+  h2{
+      font-size: 1em;
+      text-decoration: underline;
+      text-align: center;
+  }
+  .certificate-container h4{
+    font-size: 15px;
+    text-align: end;
+    margin-right: 30px;
+    font-weight: 400;
+  }
