@@ -8,7 +8,7 @@ function MedicalCoding() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
-  const [stream, setStream] = useState("");
+
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
   
@@ -27,7 +27,7 @@ function MedicalCoding() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!name || !stream ||!representative ) {
+    if (!name || !representative ) {
       alert("Please fill all required fields.");
       return;
     }
@@ -60,10 +60,7 @@ function MedicalCoding() {
           <input id="representative" type="text" value={representative} onChange={(event) => setRepresentative(event.target.value)} required />
         </div>
        
-        <div className="form-group">
-          <label htmlFor="stream">Stream *</label>
-          <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
-        </div>
+       
         <button type="submit">Generate Certificate</button>
       </form>
       {isCertificateVisible && (
