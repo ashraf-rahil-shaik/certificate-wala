@@ -3,9 +3,8 @@ import Header2 from "./Header2";
 import img from "../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css";
-
-function CertificateForm() {
+import "./Certificate.css"
+function Tally() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
@@ -36,10 +35,10 @@ function CertificateForm() {
   };
   return (
     <>
-    <Header2 />
+    <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
-        <h5>c/c++</h5>
+        <h4>Tally</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
         
       
@@ -66,8 +65,6 @@ function CertificateForm() {
           <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
         </div>
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
-
       </form>
       {isCertificateVisible && (
         <div className="certificate-container">
@@ -75,29 +72,23 @@ function CertificateForm() {
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-  <h4>Date: 23 Mar 2023</h4>
+  <h4>Date: 24 Mar 2023</h4>
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as System Engineer Intern in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.
-</p>
-
-<li>Introduction to C Language</li>
-<li>C Control Statements</li>
-<li>C Functions</li>
-<li>C Array</li>
-<li>C Pointers</li>
-<li>C Dynamic Memory</li>
-<li>C Strings</li>
-<li>C Math</li>
-<li>C Structure Union</li>
-<li>C File Handling</li>
-<li>C Pre processor</li>
-<li>C Command Line</li>
-<li>C Misc.</li>
-<li>C Programs</li>
-<li>Working on the development of the frameworks</li>
-
+            We are pleased to confirm your acceptance of an internship as Account Keeping - Intern in the stream of Finance with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.             </p>
+            <ul>
+  <li>Learn the basics of Tally</li>
+  <li>Get a complete understanding of how to install and operate Tally</li>
+  <li>Explanation of various Tally features</li>
+  <li>Complete understanding of GST accounting in Tally & extracting GST reports</li>
+  <li>Recording of different types of transactions (e.g. sales, purchase, receipts, payments & contra entries)</li>
+  <li>Payroll in Tally</li>
+  <li>Shortcut keys to operate Tally software</li>
+  <li>Minute details of using Tally software</li>
+  <li>How to deal with different accounting scenarios</li>
+  <li>Advance level problem solving situations</li>
+</ul>
 
 <p>
 Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. 
@@ -125,8 +116,8 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </div>
 )}
 </div>
-
+<button onClick={downloadCertificate}>Download PDF</button>
 </>
 );
 }
-export default CertificateForm;
+export default Tally;

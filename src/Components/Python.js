@@ -3,9 +3,8 @@ import Header2 from "./Header2";
 import img from "../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css";
-
-function CertificateForm() {
+import "./Certificate.css"
+function Python() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
@@ -36,10 +35,10 @@ function CertificateForm() {
   };
   return (
     <>
-    <Header2 />
+    <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
-        <h5>c/c++</h5>
+        <h4>Python</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
         
       
@@ -66,8 +65,6 @@ function CertificateForm() {
           <input id="stream" type="text" value={stream} onChange={(event) => setStream(event.target.value)} required />
         </div>
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
-
       </form>
       {isCertificateVisible && (
         <div className="certificate-container">
@@ -75,33 +72,21 @@ function CertificateForm() {
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-  <h4>Date: 23 Mar 2023</h4>
+  <h4>Date: 24 Mar 2023</h4>
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as System Engineer Intern in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.
-</p>
-
-<li>Introduction to C Language</li>
-<li>C Control Statements</li>
-<li>C Functions</li>
-<li>C Array</li>
-<li>C Pointers</li>
-<li>C Dynamic Memory</li>
-<li>C Strings</li>
-<li>C Math</li>
-<li>C Structure Union</li>
-<li>C File Handling</li>
-<li>C Pre processor</li>
-<li>C Command Line</li>
-<li>C Misc.</li>
-<li>C Programs</li>
-<li>Working on the development of the frameworks</li>
-
+            We are pleased to confirm your acceptance of an internship as Intern Developer in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.      </p>
+            <ul>
+  <li>Python Introduction</li>
+  <li>Python OOPs</li>
+  <li>Python MySQL</li>
+  <li>Python MongoDB</li>
+  <li>Python SQLite</li>
+</ul>
 
 <p>
-Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. 
-</p>
+Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. </p>
 <p>If you have any questions, please feel free to contact supervisor’s allocated at work. We are please you’ve decided to join TriaRight Solutions LLP.
  </p>
 <p>Sincerely,</p>
@@ -118,15 +103,18 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
   <p>LLPIN: ACA-1594</p>
 <p> Ph: 040 666 37 666</p>
 </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
 </footer>
 </div>
 
 </div>
 )}
 </div>
-
+<button onClick={downloadCertificate}>Download PDF</button>
 </>
 );
 }
-export default CertificateForm;
+export default Python;

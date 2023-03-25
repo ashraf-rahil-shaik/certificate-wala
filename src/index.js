@@ -8,7 +8,12 @@ import CollegeRegister from './Components/CollegeReg';
 import ConsultantRegister from './Components/ConsultantReg';
 import CertificateForm from './Components/Certificate';
 import CloudComputing from './Components/CloudComputing';
-
+import Java from './Components/Java'
+import WebTech from './Components/WebTech';
+import DigitalMarketing from './Components/DigitalMarketing';
+import MedicalCoding from './Components/MedicalCoding';
+import Tally from './Components/Tally';
+import Python from './Components/Python';
 
 
 
@@ -28,6 +33,13 @@ root.render(
              
              <Route path='/Certificate' element={<CertificateForm/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
+             <Route path='/java' element={<Java/>}  />
+             <Route path='/wt' element={<WebTech/>}  />
+             <Route path='/digitalmarketing' element={<DigitalMarketing/>}  />
+             <Route path='/medicalcoding' element={<MedicalCoding/>}  />
+             <Route path='/tally' element={<Tally/>}  />
+             <Route path='/python' element={<Python/>}  />
+
              
            </Routes>
   

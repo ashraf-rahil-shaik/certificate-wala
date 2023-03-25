@@ -38,6 +38,7 @@ function CloudComputing() {
     <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
+        <h4>cloudcomputing</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
         
       
@@ -75,25 +76,25 @@ function CloudComputing() {
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as System Engineer Intern in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.
-</p>
+            We are pleased to confirm your acceptance of an internship as Cloud System Engineer - Intern in the stream of Information Technology with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.</p>
+<ul>
+<li>Learn the concepts of 
+Basics of Cloud Computing
+</li>
+<li> DevOps</li>
+<li>Containerization</li>
+<li>Big Data</li>
+<li>Green Cloud Computing</li>
+<li>Cloud Cryptography</li>
+<li>Edge Computing</li>
+<li>Load Balancing</li>
+<li>	Community model</li>
+<li>Cloud Analytics</li>
+<li>Conclusion</li>
+<li>Understand the importance of Cloud and the usage of it</li>
+<li>Working on the live projects related to cloud management</li>
 
-<li>Introduction to C Language</li>
-<li>C Control Statements</li>
-<li>C Functions</li>
-<li>C Array</li>
-<li>C Pointers</li>
-<li>C Dynamic Memory</li>
-<li>C Strings</li>
-<li>C Math</li>
-<li>C Structure Union</li>
-<li>C File Handling</li>
-<li>C Pre processor</li>
-<li>C Command Line</li>
-<li>C Misc.</li>
-<li>C Programs</li>
-<li>Working on the development of the frameworks</li>
-
+</ul>
 
 <p>
 Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. 

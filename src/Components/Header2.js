@@ -46,7 +46,7 @@ const Header2 = () => {
                   <h4>Finance</h4>
                   <ul>
                     
-                 <Link to ="/digitalmarketing"><li>tally</li></Link>
+                 <Link to ="/tally"><li>tally</li></Link>
                   </ul>
                 </div>
                 <div className="sub-menu">
