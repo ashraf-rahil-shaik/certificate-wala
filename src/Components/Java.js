@@ -13,18 +13,15 @@ function Java() {
 
   
   const downloadCertificate = () => {
-    const certificateContainer = document.querySelector(".certificate-container");
-  
-    // Use html2canvas to generate a canvas element from the certificate content
-    html2canvas(certificateContainer, { backgroundColor: "#fff" }).then((canvas) => {
-      // Use jsPDF to create a new PDF document and add the canvas to it
-      const pdf = new jsPDF();
-      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
-  
-      // Use the jsPDF save method to trigger a download of the PDF file
+    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
+      var imgData = canvas.toDataURL("image/jpeg");
+      var pdf = new jsPDF('p', 'mm', [200,270]);
+      pdf.addImage(imgData, 'JPEG', 10, 10);
+      
       pdf.save("certificate.pdf");
     });
-  };
+        
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!name ||
@@ -62,6 +59,8 @@ function Java() {
        
       
         <button type="submit">Generate Certificate</button>
+        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
+
       </form>
       {isCertificateVisible && (
         <div className="certificate-container">
@@ -112,7 +111,7 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </div>
 )}
 </div>
-<button onClick={downloadCertificate}>Download PDF</button>
+
 </>
 );
 }
