@@ -14,6 +14,23 @@ function CertificateForm() {
 
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
+<<<<<<< HEAD
+=======
+  
+  const downloadCertificate = () => {
+    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
+      var imgData = canvas.toDataURL("image/jpeg");
+      var pdf = new jsPDF('p', 'mm', [200,270]);
+      pdf.addImage(imgData, 'JPEG', 10, 10);
+      
+      pdf.save("certificate.pdf");
+    });
+        
+  }
+
+	
+
+>>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!name || !representative) {

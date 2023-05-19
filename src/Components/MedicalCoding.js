@@ -12,6 +12,7 @@ function MedicalCoding() {
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
   
+<<<<<<< HEAD
   function createPDFObject() {
     const input = document.getElementById("main");
   
@@ -29,6 +30,17 @@ function MedicalCoding() {
   
       });
     }, 500); // Adjust the delay if needed
+=======
+  const downloadCertificate = () => {
+    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
+      var imgData = canvas.toDataURL("image/jpeg");
+      var pdf = new jsPDF('p', 'mm', [200,270]);
+      pdf.addImage(imgData, 'JPEG', 10, 10);
+      
+      pdf.save("certificate.pdf");
+    });
+        
+>>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -67,6 +79,8 @@ function MedicalCoding() {
        
        
         <button type="submit">Generate Certificate</button>
+        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
+
       </form>
       {isCertificateVisible && (
         <div className="certificate-container">
@@ -119,7 +133,7 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </div>
 )}
 </div>
-<button onClick={downloadCertificate}>Download PDF</button>
+
 </>
 );
 }
