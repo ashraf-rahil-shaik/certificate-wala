@@ -14,6 +14,7 @@ import DigitalMarketing from './Components/DigitalMarketing';
 import MedicalCoding from './Components/MedicalCoding';
 import Tally from './Components/Tally';
 import Python from './Components/Python';
+import FinalCertificate from './Components/finalCertificate';
 
 
 
@@ -32,6 +33,7 @@ root.render(
              <Route path='/consultant' element={<ConsultantRegister/>}/>
              
              <Route path='/Certificate' element={<CertificateForm/>}/>  
+             <Route path='/finalCertificate' element={<FinalCertificate/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
              <Route path='/java' element={<Java/>}  />
              <Route path='/wt' element={<WebTech/>}  />

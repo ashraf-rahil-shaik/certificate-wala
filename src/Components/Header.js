@@ -4,7 +4,6 @@ const Header =()=>{
         
         <div className="login-container">
         <Link to='/' className="title">Certificate wala</Link>
-
       </div>
     )
 }

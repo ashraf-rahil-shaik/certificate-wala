@@ -1,43 +1,57 @@
 
-.certificate-container{
+.certificate-container2 {
     
     position: relative;
-    height: 842px;
-    
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    width: 595px;
+    height: 895px;
+    width: 635px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-content: space-between;
-  padding: 30px;
-  background-image:url('../images/watermarkImage.png');
+  padding: 0px;
+  background-image:url('../images/A4\ -\ 8.jpg');
   background-repeat:no-repeat;
+  background-size: cover;
+}
 
-  background-size: 400px 400px;
-  background-position: center;
+
+  .student-name{
+    display: flex;
+    justify-content: center;
+height: 110px;
+
+align-items: flex-end;
+    width: 100%;
+
   }
+  .description{
+    position: relative;
+    top: 20px;
+    font-family: 'Lexend', sans-serif;
+    
+    font-weight: 500;
+font-size: 1.2rem;
+  }
+  b{
+    font-weight: 900;
+    font-style: bold;
+  }
+  
   .certificate-container::before {
-   
  background-color:rgba(0,0,0,0.25);
   }
  
   
   .header-container {
- margin-top: 5px;
+ margin-top: 40px;
  
   display: flex;
+
   align-items: center;
   justify-content: flex-end;
   }
- .header-container img{
-    opacity: 40%;
- } 
-  p{
-    font-size: 13px;
-    font-weight: 400;
-  }
+  
+
 .footer p{
 color: #817f7fd9;
 line-height: 0;
@@ -129,3 +143,4 @@ h5{
     font-size: 1em;
     cursor: pointer;
   }
+  

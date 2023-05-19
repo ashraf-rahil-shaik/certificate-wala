@@ -17,6 +17,10 @@ const Header2 = () => {
             <button className="dropbtn" onClick={toggleCourses}>Courses</button>
             {showCourses && (
               <div className="dropdown-content">
+                <div className='sub-menu'>
+                  <h4>final certificate</h4>
+                  <Link to="/finalCertificate"><li>finalCertificate</li></Link>
+                  </div>
                 <div className="sub-menu">
                   <h4>IT</h4>
                   <ul>

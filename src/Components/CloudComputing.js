@@ -12,19 +12,24 @@ function CloudComputing() {
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
   
-  const downloadCertificate = () => {
-    const certificateContainer = document.querySelector(".certificate-container");
+  function createPDFObject() {
+    const input = document.getElementById("main");
   
-    // Use html2canvas to generate a canvas element from the certificate content
-    html2canvas(certificateContainer, { backgroundColor: "#fff" }).then((canvas) => {
-      // Use jsPDF to create a new PDF document and add the canvas to it
-      const pdf = new jsPDF();
-      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+    setTimeout(() => {
+      html2canvas(input).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF();
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
   
-      // Use the jsPDF save method to trigger a download of the PDF file
-      pdf.save("certificate.pdf");
-    });
-  };
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+         const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+        pdf.save(fileName);
+  
+      });
+    }, 500); // Adjust the delay if needed
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!name || !representative ) {
@@ -40,8 +45,6 @@ function CloudComputing() {
       <form onSubmit={handleSubmit}>
         <h4>cloudcomputing</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-        
-      
         <div className="form-group">
           <label htmlFor="salutation">Salutation</label>
           <select id="salutation" value={salutation} onChange={(event) => setSalutation(event.target.value)}>
