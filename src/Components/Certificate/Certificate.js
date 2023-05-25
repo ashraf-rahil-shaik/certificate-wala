@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header2 from "./Header2";
-import img from "../images/logo.png";
+import Header2 from "../Header2";
+import img from "../../images/logo.png";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import "./Certificate.css";
@@ -13,24 +13,6 @@ function CertificateForm() {
   const [representative, setRepresentative] = useState("");
 
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
-
-<<<<<<< HEAD
-=======
-  
-  const downloadCertificate = () => {
-    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
-      var imgData = canvas.toDataURL("image/jpeg");
-      var pdf = new jsPDF('p', 'mm', [200,270]);
-      pdf.addImage(imgData, 'JPEG', 10, 10);
-      
-      pdf.save("certificate.pdf");
-    });
-        
-  }
-
-	
-
->>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!name || !representative) {
@@ -39,24 +21,25 @@ function CertificateForm() {
     }
     setIsCertificateVisible(true);
   };
-  function createPDFObject() {
-  const input = document.getElementById("main");
 
-  setTimeout(() => {
+
+
+  function createPDFObject(name) {
+    const input = document.getElementById("main");
+  
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
+  
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-       const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+      const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
       pdf.save(fileName);
-
     });
-  }, 500); // Adjust the delay if needed
-}
+  }
+  
 
   return (
     <>
@@ -101,9 +84,10 @@ function CertificateForm() {
           </div>
 
           <button type="submit">Generate Certificate</button>
-          <button onClick={createPDFObject(name)} className="download-button">
-            Download PDF
-          </button>
+         <button onClick={() => createPDFObject(name)} className="download-button">
+  Download PDF
+</button>
+
         </form>
         {isCertificateVisible && (
           <div className="certificate-container" id="main">
@@ -167,5 +151,6 @@ function CertificateForm() {
     </>
   );
 }
+
 
 export default CertificateForm;

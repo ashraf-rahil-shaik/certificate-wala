@@ -1,47 +1,17 @@
 import React, { useState } from "react";
-import Header2 from "./Header2";
-import img from "../images/logo.png"
+import Header2 from "../Header2";
+import img from "../../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css";
-function CloudComputing() {
+import "./MedicalCoding.css"
+function MedicalCoding() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
- 
+
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
-<<<<<<< HEAD
   
-  function createPDFObject() {
-    const input = document.getElementById("main");
-  
-    setTimeout(() => {
-      html2canvas(input).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-         const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
-        pdf.save(fileName);
-  
-      });
-    }, 500); // Adjust the delay if needed
-=======
-  const downloadCertificate = () => {
-    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
-      var imgData = canvas.toDataURL("image/jpeg");
-      var pdf = new jsPDF('p', 'mm', [200,270]);
-      pdf.addImage(imgData, 'JPEG', 10, 10);
-      
-      pdf.save("certificate.pdf");
-    });
-        
->>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
-  }
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!name || !representative ) {
@@ -50,13 +20,31 @@ function CloudComputing() {
     }
     setIsCertificateVisible(true);
   };
+  function createPDFObject(name) {
+    const input = document.getElementById("main");
+  
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+      pdf.save(fileName);
+    });
+  } 
+ 
   return (
     <>
     <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
-        <h4>cloudcomputing</h4>
+        <h4>MedicalCoding</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
+        
+      
         <div className="form-group">
           <label htmlFor="salutation">Salutation</label>
           <select id="salutation" value={salutation} onChange={(event) => setSalutation(event.target.value)}>
@@ -77,37 +65,33 @@ function CloudComputing() {
        
        
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
-
+        <button onClick={() => createPDFObject(name)} className="download-button">
+  Download PDF
+</button>
       </form>
       {isCertificateVisible && (
-        <div className="certificate-container">
-          <div className="header-container">
+        <div className="certificate-container" id="main">
+        <div className="header-container">
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-  <h4>Date: 23 Mar 2023</h4>
+  <h4>Date: 24 Mar 2023</h4>
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as Cloud System Engineer - Intern in the stream of Information Technology with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.</p>
-<ul>
-<li>Learn the concepts of 
-Basics of Cloud Computing
-</li>
-<li> DevOps</li>
-<li>Containerization</li>
-<li>Big Data</li>
-<li>Green Cloud Computing</li>
-<li>Cloud Cryptography</li>
-<li>Edge Computing</li>
-<li>Load Balancing</li>
-<li>	Community model</li>
-<li>Cloud Analytics</li>
-<li>Conclusion</li>
-<li>Understand the importance of Cloud and the usage of it</li>
-<li>Working on the live projects related to cloud management</li>
-
+            We are pleased to confirm your acceptance of an internship as Medical Coding Specialist -Intern in the Coding Department with TriaRight Solutions LLP. Your duties and assignments for this position are as follows. 
+             </p>
+             <ul>
+  <li>Introduction to Medical Terminology</li>
+  <li>Anatomy Structure</li>
+  <li>Medical Terminology</li>
+  <li>Medical Ethics</li>
+  <li>ICD-9-CM Coding Manual</li>
+  <li>Infections using ICD-9-CM</li>
+  <li>Digestive System using ICD-9-CM</li>
+  <li>Coding for Pregnancy using ICD-9-CM</li>
+  <li>CPT Coding for Reproductive Systems</li>
+  <li>Coding for Mental Disorders using ICD-9-CM</li>
 </ul>
 
 <p>
@@ -140,4 +124,5 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </>
 );
 }
-export default CloudComputing;
+
+export default MedicalCoding;

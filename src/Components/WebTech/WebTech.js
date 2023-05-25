@@ -1,51 +1,35 @@
 import React, { useState } from "react";
-import Header2 from "./Header2";
-import img from "../images/logo.png"
+import Header2 from "../Header2";
+import img from "../../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css"
-function Java() {
+import "./WebTech.css"
+function WebTech() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
-  
+ 
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
-  
-<<<<<<< HEAD
-  function createPDFObject() {
+  function createPDFObject(name) {
     const input = document.getElementById("main");
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
   
-    setTimeout(() => {
-      html2canvas(input).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-         const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
-        pdf.save(fileName);
-  
-      });
-    }, 500); // Adjust the delay if needed
-=======
-  const downloadCertificate = () => {
-    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
-      var imgData = canvas.toDataURL("image/jpeg");
-      var pdf = new jsPDF('p', 'mm', [200,270]);
-      pdf.addImage(imgData, 'JPEG', 10, 10);
-      
-      pdf.save("certificate.pdf");
+ pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+      pdf.save(fileName);
     });
-        
->>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!name ||
-        !representative ) {
+    if (!name || !representative ) {
       alert("Please fill all required fields.");
       return;
     }
@@ -56,9 +40,8 @@ function Java() {
     <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
-        <h4>java</h4>
+        <h4>Web Technology</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-
         <div className="form-group">
           <label htmlFor="salutation">Salutation</label>
           <select id="salutation" value={salutation} onChange={(event) => setSalutation(event.target.value)}>
@@ -77,33 +60,44 @@ function Java() {
           <input id="representative" type="text" value={representative} onChange={(event) => setRepresentative(event.target.value)} required />
         </div>
        
-      
+     
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
-
+        <button onClick={() => createPDFObject(name)} className="download-button">
+  Download PDF
+</button>
       </form>
       {isCertificateVisible && (
-        <div className="certificate-container">
-          <div className="header-container">
+        <div className="certificate-container" id="main" >
+        <div className="header-container">
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
-  <h4>Date: 23 Mar 2023</h4>
+  <h4>Date: 24 Mar 2023</h4>
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as System Engineer Intern in the stream of IT with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.</p><ul>
-            
-  <li>Java Introduction</li>
-  <li>Control Statements</li>
-  <li>Java Object Class</li>
-  <li>Java Inheritance</li>
-  <li>Java Polymorphism</li>
-  <li>Java Abstraction</li>
-  <li>Java Encapsulation</li>
-  <li>Java Array</li>
-  <li>Java OOPs Misc.</li>
-</ul> 
+            We are pleased to confirm your acceptance of an internship as Web Developer - Intern in the stream of Information Technology with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.</p>
+            <ul>
+  <li>Learn the concepts of</li>
+  <ul>
+    <li>Browsers</li>
+    <li>HTML & CSS</li>
+    <li>Web Development framework</li>
+    <li>Programming Languages</li>
+    <li>JavaScript</li>
+    <li>Bootstrap</li>
+    <li>Protocols</li>
+    <li>API</li>
+    <li>Data Formats</li>
+    <li>Servers-Side</li>
+    <li>Client-Side</li>
+    <li>PHP, MySQL, and Python</li>
+  </ul>
+  <li>Get a complete understanding of how to develop a website</li>
+ 
+  <li>Complete understanding of webpage layouts and designing</li>
+  <li>Working on the live projects related to web developments</li>
+</ul>
 
 <p>
 Your first day of work will be 24th March 2023. You will work 30 number of hours per week totaling 480 number of hours for the duration of the internship. 
@@ -116,11 +110,10 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </p>
 <footer className="footer">
   <div>
-  <p>#7-1-58, 404 B, 4th floor, Surekha Chambers, Ameerpet, 	</p>
+  <p>#7-1-58, 404 B, 4th floor, Surekha Chambers, Ameerpet,</p>
   <p>Hyderabad, Telangana – 500016</p>
   </div>
 <div>
-
   <p>LLPIN: ACA-1594</p>
 <p> Ph: 040 666 37 666</p>
 </div>
@@ -135,4 +128,6 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </>
 );
 }
-export default Java;
+
+
+export default WebTech;

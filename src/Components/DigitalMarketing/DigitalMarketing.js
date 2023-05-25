@@ -1,46 +1,31 @@
 import React, { useState } from "react";
-import Header2 from "./Header2";
-import img from "../images/logo.png"
+import Header2 from "../Header2";
+import img from "../../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css"
-function WebTech() {
+import "./DigitalMarketing.css"
+function DigitalMarketing() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
   const [representative,setRepresentative] =useState("")
- 
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
   
-<<<<<<< HEAD
-  function createPDFObject() {
+
+  function createPDFObject(name) {
     const input = document.getElementById("main");
   
-    setTimeout(() => {
-      html2canvas(input).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
   
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-         const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
-        pdf.save(fileName);
-  
-      });
-    }, 500); // Adjust the delay if needed
-=======
-  const downloadCertificate = () => {
-    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
-      var imgData = canvas.toDataURL("image/jpeg");
-      var pdf = new jsPDF('p', 'mm', [200,270]);
-      pdf.addImage(imgData, 'JPEG', 10, 10);
-      
-      pdf.save("certificate.pdf");
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+      pdf.save(fileName);
     });
-        
->>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,7 +40,7 @@ function WebTech() {
     <Header2/>
     <div className="certificate-form-container">
       <form onSubmit={handleSubmit}>
-        <h4>Web Technology</h4>
+        <h4>DigitalMarketing</h4>
         <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
         
       
@@ -77,14 +62,15 @@ function WebTech() {
           <input id="representative" type="text" value={representative} onChange={(event) => setRepresentative(event.target.value)} required />
         </div>
        
-     
+       
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
-
+        <button onClick={() => createPDFObject(name)} className="download-button">
+  Download PDF
+</button>
       </form>
       {isCertificateVisible && (
-        <div className="certificate-container">
-          <div className="header-container">
+        <div className="certificate-container" id="main">
+        <div className="header-container">
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
@@ -92,27 +78,18 @@ function WebTech() {
            <h5>Dear {name},</h5>
           <div className="content-container">
             <p>
-            We are pleased to confirm your acceptance of an internship as Web Developer - Intern in the stream of Information Technology with TriaRight Solutions LLP. Your duties and assignments for this position are as follows.</p>
+            We are pleased to confirm your acceptance of an internship as Digital Marketing Executive in the Marketing Department with TriaRight Solutions LLP. Your duties and assignments for this position are as follows. </p>
             <ul>
-  <li>Learn the concepts of</li>
-  <ul>
-    <li>Browsers</li>
-    <li>HTML & CSS</li>
-    <li>Web Development framework</li>
-    <li>Programming Languages</li>
-    <li>JavaScript</li>
-    <li>Bootstrap</li>
-    <li>Protocols</li>
-    <li>API</li>
-    <li>Data Formats</li>
-    <li>Servers-Side</li>
-    <li>Client-Side</li>
-    <li>PHP, MySQL, and Python</li>
-  </ul>
-  <li>Get a complete understanding of how to develop a website</li>
- 
-  <li>Complete understanding of webpage layouts and designing</li>
-  <li>Working on the live projects related to web developments</li>
+  <li>Understanding on Marketing</li>
+  <li>Uses and applications of Digital Marketing</li>
+  <li>Metrics of Digital Marketing</li>
+  <li>Customer Centricity</li>
+  <li>Designing a Web Presence</li>
+  <li>Social Media Marketing</li>
+  <li>Search Engine Optimization</li>
+  <li>Blog Creation</li>
+  <li>Project (Facebook Ads Manager)</li>
+  <li>Search Engine Marketing, etc.</li>
 </ul>
 
 <p>
@@ -126,7 +103,7 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </p>
 <footer className="footer">
   <div>
-  <p>#7-1-58, 404 B, 4th floor, Surekha Chambers, Ameerpet,</p>
+  <p>#7-1-58, 404 B, 4th floor, Surekha Chambers, Ameerpet, 	</p>
   <p>Hyderabad, Telangana – 500016</p>
   </div>
 <div>
@@ -145,4 +122,5 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 </>
 );
 }
-export default WebTech;
+
+export default DigitalMarketing;

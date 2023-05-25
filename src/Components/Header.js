@@ -3,7 +3,7 @@ const Header =()=>{
     return(
         
         <div className="login-container">
-        <Link to='/' className="title">Certificate wala</Link>
+        <Link to='/' className="title"> Triaright Certificate </Link>
       </div>
     )
 }

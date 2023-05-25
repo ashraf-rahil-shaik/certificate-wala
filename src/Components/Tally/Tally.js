@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header2 from "./Header2";
-import img from "../images/logo.png"
+import Header2 from "../Header2";
+import img from "../../images/logo.png"
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
-import "./Certificate.css"
+import "./Tally.css"
 function Tally() {
   const [name, setName] = useState("");
   const [salutation, setSalutation] = useState("");
@@ -11,35 +11,20 @@ function Tally() {
   
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
-  function createPDFObject() {
+  function createPDFObject(name) {
     const input = document.getElementById("main");
   
-<<<<<<< HEAD
-    setTimeout(() => {
-      html2canvas(input).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
   
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-         const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
-        pdf.save(fileName);
-  
-      });
-    }, 500); // Adjust the delay if needed
-=======
-  const downloadCertificate = () => {
-    html2canvas(document.querySelector(".certificate-container"), { scale: 1, width: 2000, height: 9000 }).then(canvas => {
-      var imgData = canvas.toDataURL("image/jpeg");
-      var pdf = new jsPDF('p', 'mm', [200,270]);
-      pdf.addImage(imgData, 'JPEG', 10, 10);
-      
-      pdf.save("certificate.pdf");
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
+      pdf.save(fileName);
     });
-        
->>>>>>> b9ad57a4eaddd61954e3b0687b61c84fee53fe3d
   }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,12 +63,14 @@ function Tally() {
        
       
         <button type="submit">Generate Certificate</button>
-        <button onClick={downloadCertificate} className="download-button">Download PDF</button>
+        <button onClick={() => createPDFObject(name)} className="download-button">
+  Download PDF
+</button>
 
       </form>
       {isCertificateVisible && (
-        <div className="certificate-container">
-          <div className="header-container">
+     <div className="certificate-container" id="main">
+     <div className="header-container">
   <img src={img} alt="logo" />
   </div>
   <h2>INTERNSHIP ACCEPTANCE LETTER</h2>
@@ -134,5 +121,6 @@ Your first day of work will be 24th March 2023. You will work 30 number of hours
 
 </>
 );
+   
 }
 export default Tally;

@@ -10,7 +10,7 @@ const Header2 = () => {
   return (
     <>
       <div className="login-container">
-        <h1 to='/' className="title">Certificate wala</h1>
+        <h1 to='/' className="title">Triaright Certificate </h1>
         <div className="menu">
           
           <div className="dropdown">

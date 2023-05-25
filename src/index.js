@@ -6,14 +6,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CompanyRegister from './Components/CompanyReg';
 import CollegeRegister from './Components/CollegeReg';
 import ConsultantRegister from './Components/ConsultantReg';
-import CertificateForm from './Components/Certificate';
-import CloudComputing from './Components/CloudComputing';
-import Java from './Components/Java'
-import WebTech from './Components/WebTech';
-import DigitalMarketing from './Components/DigitalMarketing';
-import MedicalCoding from './Components/MedicalCoding';
-import Tally from './Components/Tally';
-import Python from './Components/Python';
+import CertificateForm from './Components/Certificate/Certificate';
+import CloudComputing from './Components/CloudComputing/CloudComputing';
+import Java from './Components/Java/Java'
+import WebTech from './Components/WebTech/WebTech';
+import DigitalMarketing from './Components/DigitalMarketing/DigitalMarketing';
+import MedicalCoding from './Components/MedicalCoding/MedicalCoding';
+import Tally from './Components/Tally/Tally';
+import Python from './Components/Python/Python';
 import FinalCertificate from './Components/finalCertificate';
 
 

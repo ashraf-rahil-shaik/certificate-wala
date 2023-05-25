@@ -1,20 +1,19 @@
 
-.certificate-container{
+.cloud{
     
     position: relative;
     height: 842px;
-    
+  
     background-color: #FFFFFF;
     border-radius: 10px;
     width: 595px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-content: space-between;
+  align-content: space-evenly;
   padding: 30px;
-  background-image:url('../images/watermarkImage.png');
+  background-image:url('../../images/watermarkImage.png');
   background-repeat:no-repeat;
-
   background-size: 400px 400px;
   background-position: center;
   }
@@ -24,31 +23,43 @@
   }
  
   
-  .header-container {
+  .header-container-cloud {
+    position: relative;
+    bottom: 20px;
  margin-top: 5px;
  
   display: flex;
   align-items: center;
   justify-content: flex-end;
   }
- .header-container img{
-    opacity: 40%;
- } 
+  
   p{
     font-size: 13px;
     font-weight: 400;
   }
-.footer p{
+.footer-cloud p{
 color: #817f7fd9;
 line-height: 0;
 font-size: 12px;
 }
-.footer{
+.footer-cloud{
+  position: relative;
+top:60px;
   height: 10vh;
 display: flex;
 align-items: flex-end;
 justify-content: space-between;
 
+}
+.fairwell p{
+  display: flex;
+  flex-direction: column;
+
+  line-height: 12px;
+  position:relative;
+  top:30px
+
+  
 }
 
 li{
