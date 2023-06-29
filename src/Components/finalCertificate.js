@@ -156,8 +156,8 @@ function FinalCertificate() {
   const [excelData, setExcelData] = useState([]);
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
 
-  function createPDFObject(certificateName) {
-    const certificate = document.getElementById("certificate");
+  function createPDFObject(certificateName, index) {
+    const certificate = document.getElementById(`certificate-${index}`);
 
     html2canvas(certificate).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
@@ -189,23 +189,51 @@ function FinalCertificate() {
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: "array" });
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+      const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false });
 
       if (jsonData.length === 0) {
         alert("The selected Excel file does not contain any data.");
         return;
       }
 
-      setExcelData(jsonData);
+      const formattedData = jsonData.map((row) => {
+        // Assuming the date columns are at index 1 (start date) and index 2 (end date)
+        const startDate = formatDate(row[2]);
+        const endDate = formatDate(row[3]);
+        const dataOfIssue = formatDate(row[4]);
+        // Replace the date values in the row with the formatted dates
+        row[2] = startDate;
+        row[3] = endDate;
+        row[4]=dataOfIssue;
+
+        return row;
+      });
+
+      setExcelData(formattedData);
       setIsCertificateVisible(false);
     };
     reader.readAsArrayBuffer(file);
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (isNaN(date)) {
+      // If the date cannot be parsed, return the original date string
+      return dateString;
+    }
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear());
+
+    return `${day}-${month}-${year}`;
+  };
+
   const handleDownloadAll = () => {
-    excelData.forEach((row) => {
+    excelData.forEach((row, index) => {
       const certificateName = row[0]; // Assuming Name is in the first column
-      createPDFObject(certificateName);
+      createPDFObject(certificateName, index);
     });
   };
 
@@ -213,7 +241,9 @@ function FinalCertificate() {
     <div className="body">
       <h1>Certificate Generator</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="excelFile">Upload Excel File:</label>
+        <label htmlFor="excelFile" className="upload">
+          Upload Excel File:
+        </label>
         <input
           id="excelFile"
           type="file"
@@ -225,40 +255,38 @@ function FinalCertificate() {
       </form>
 
       {isCertificateVisible && (
-        <div  className="container_body">
-          <h2>Certificates:</h2>
+        <div className="container_body">
           {excelData.map((row, index) => (
             <>
-            <div key={index} id="certificate" className="certificate-container2">
+            <div key={index} id={`certificate-${index}`} className="certificate-container2">
               <div className="header-container">
-                <h3>Certificate of Completion</h3>
-                <p>This is to certify that</p>
-                <h4>{row[0]}</h4> {/* Assuming Name is in the first column */}
-                <p>has successfully completed the course</p>
-                <h4>{row[1]}</h4> {/* Assuming Course is in the second column */}
-                <p>
-                  from {row[2]} to {row[3]}
-                </p>{" "}
-                {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
-                <p>Date of Issue: {row[4]}</p>{" "}
-                {/* Assuming Date of Issue is in the fifth column */}
-                <p>Certificate Number: {row[5]}</p>{" "}
-                {/* Assuming Certificate Number is in the sixth column */}
+                <h1 className="student-name">{row[0]}</h1> {/* Assuming Name is in the first column */}
+                <p className="description">Has Successfully Completed 15 Weeks Internship</p>
+                <p className="time">
+                  on <b>{row[1]} </b> from <b>{row[2]}</b> to <b>{row[3]}</b>
+                </p> {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
+                <div className="end">
+                  <p>
+                    Date of Issue:<b>{row[4]} </b>
+                    <br />
+                    Certificate Number: <b>{row[5]}</b>
+                  </p>
+                </div>{" "}
+                {/* Assuming Date of Issue is in the fifth column andCertificate Number is in the sixth column */}
               </div>
-              
+             
+             
             </div>
-            <button
-            onClick={() =>
-              createPDFObject(row[0]) // Assuming Name is in the first column
-            }
-            className="download-button"
-          >
-            Download Certificate
-          </button>
-          </>
+             <button onClick={() => createPDFObject(row[0], index)} className="download-button">
+             Download Certificate
+           </button>
+           </>
           ))}
-          
-          <button onClick={handleDownloadAll} className="download-button">Download All</button>
+          <div className="download-all-container">
+            <button onClick={handleDownloadAll} className="download-button">
+              Download All Certificates
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -266,6 +294,9 @@ function FinalCertificate() {
 }
 
 export default FinalCertificate;
+
+
+
 
 
 

@@ -15,6 +15,7 @@
   background-size: cover;
   gap:20px;
   flex-wrap: wrap;
+  
 }
 
 
@@ -23,14 +24,13 @@
     justify-content: center;
 height: 110px;
 position: relative;
-
 align-items: flex-end;
     width: 100%;
-
+bottom: 20px;
   }
   .description{
     position: relative;
- bottom: 30px;
+ bottom: 50px;
     font-family: 'Lexend', sans-serif;
     
     font-weight: 580;
@@ -39,7 +39,7 @@ font-size: 1.2rem;
   .time{
     position: relative;
        font-family: 'Lexend', sans-serif;
-       bottom: 70px;
+       bottom: 90px;
        font-weight: 580;
    font-size: 1.2rem;
   }
@@ -55,7 +55,7 @@ font-size: 1.2rem;
   
   .header-container {
     position: relative;
-    top:140px;
+    top:160px;
   display: flex;
 flex-direction: column;
   align-items: center;
@@ -87,15 +87,15 @@ li{
     body * {
       visibility: hidden;
     }
-    .certificate-container,
-    .certificate-container * {
+    .certificate-container2,
+    .certificate-container2 * {
       visibility: visible;
     }
-    .certificate-container {
+    .certificate-container2 {
       margin-top: 0;
       margin-bottom: 0;
     }
-    .header-container  {
+    .header-container2  {
       margin-top: 0;
     }
   }
@@ -139,11 +139,24 @@ h5{
     margin-right: 30px;
     font-weight: 400;
   }
-
+.upload{
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: rgba(31, 84, 198, 0.879);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 20px;
+  margin: 30px;
+}
 
   .download-button{
     
-    width: 200px;
+    width: 300px;
     height: 40px;
     padding: 10px;
     margin-top: 20px;
@@ -157,21 +170,23 @@ h5{
   
   .end{
     display: flex;
-    background-color:red;
+
    flex-direction: column;
    position: relative;
-   bottom:60px ;
+   bottom:40px ;
    right: 220px;
   height: 90PX;
   
   }
 .container_body{
-background-color:rgb(15, 15, 15);
+background-color:rgb(5, 12, 88);
 display: flex;
-justify-content: space-around;
 gap: 50px;
 flex-wrap: wrap;
 padding: 50px;
+flex-direction: column;
+align-content: center;
+margin-top: 30px;
 
 
 }
