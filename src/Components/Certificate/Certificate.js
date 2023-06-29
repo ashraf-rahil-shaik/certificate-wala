@@ -26,14 +26,17 @@ function CertificateForm() {
 
   function createPDFObject(name) {
     const input = document.getElementById("main");
-  
-    html2canvas(input).then((canvas) => {
+ 
+    html2canvas(input,{
+      quality:4,
+      scale:4
+    }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
+
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       const fileName = name ? `${name}.pdf` : "certificate.pdf"; // Use name variable for filename if available
       pdf.save(fileName);

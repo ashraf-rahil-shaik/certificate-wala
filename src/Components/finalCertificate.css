@@ -2,16 +2,19 @@
 .certificate-container2 {
     
     position: relative;
-    height: 895px;
-    width: 635px;
+  width: 852px;
+    height: 609px;
   display: flex;
   justify-content: center;
+  
   flex-direction: column;
-  align-content: space-between;
+  /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../images/A4\ -\ 8.jpg');
+  background-image:url('../images/A4-8.jpg');
   background-repeat:no-repeat;
   background-size: cover;
+  gap:20px;
+  flex-wrap: wrap;
 }
 
 
@@ -19,6 +22,7 @@
     display: flex;
     justify-content: center;
 height: 110px;
+position: relative;
 
 align-items: flex-end;
     width: 100%;
@@ -26,11 +30,18 @@ align-items: flex-end;
   }
   .description{
     position: relative;
-    top: 20px;
+ bottom: 30px;
     font-family: 'Lexend', sans-serif;
     
-    font-weight: 500;
+    font-weight: 580;
 font-size: 1.2rem;
+  }
+  .time{
+    position: relative;
+       font-family: 'Lexend', sans-serif;
+       bottom: 70px;
+       font-weight: 580;
+   font-size: 1.2rem;
   }
   b{
     font-weight: 900;
@@ -43,12 +54,12 @@ font-size: 1.2rem;
  
   
   .header-container {
- margin-top: 40px;
- 
+    position: relative;
+    top:140px;
   display: flex;
-
+flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  align-content: first baseline;
   }
   
 
@@ -129,14 +140,14 @@ h5{
     font-weight: 400;
   }
 
+
   .download-button{
-    position:relative;
-    left: 30px;
+    
     width: 200px;
     height: 40px;
     padding: 10px;
     margin-top: 20px;
-    background-color: rgba(31, 167, 198, 0.879);
+    background-color: rgba(198, 95, 31, 0.879);
     color: white;
     border: none;
     border-radius: 5px;
@@ -144,3 +155,24 @@ h5{
     cursor: pointer;
   }
   
+  .end{
+    display: flex;
+    background-color:red;
+   flex-direction: column;
+   position: relative;
+   bottom:60px ;
+   right: 220px;
+  height: 90PX;
+  
+  }
+.container_body{
+background-color:rgb(15, 15, 15);
+display: flex;
+justify-content: space-around;
+gap: 50px;
+flex-wrap: wrap;
+padding: 50px;
+
+
+}
+ 
