@@ -26,11 +26,11 @@ height: 110px;
 position: relative;
 align-items: flex-end;
     width: 100%;
-bottom: 20px;
+bottom: 35px;
   }
   .description{
     position: relative;
- bottom: 50px;
+ bottom: 70px;
     font-family: 'Lexend', sans-serif;
     
     font-weight: 580;
@@ -39,7 +39,7 @@ font-size: 1.2rem;
   .time{
     position: relative;
        font-family: 'Lexend', sans-serif;
-       bottom: 90px;
+       bottom: 100px;
        font-weight: 580;
    font-size: 1.2rem;
   }
@@ -140,17 +140,17 @@ h5{
     font-weight: 400;
   }
 .upload{
+    
   width: 300px;
   height: 40px;
   padding: 10px;
   margin-top: 20px;
-  background-color: rgba(31, 84, 198, 0.879);
+  background-color: rgb(21, 64, 166);
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
-  padding: 20px;
   margin: 30px;
 }
 
@@ -173,7 +173,7 @@ h5{
 
    flex-direction: column;
    position: relative;
-   bottom:40px ;
+   bottom:  20px ;
    right: 220px;
   height: 90PX;
   

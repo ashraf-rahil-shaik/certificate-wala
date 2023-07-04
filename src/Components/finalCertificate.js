@@ -159,7 +159,10 @@ function FinalCertificate() {
   function createPDFObject(certificateName, index) {
     const certificate = document.getElementById(`certificate-${index}`);
 
-    html2canvas(certificate).then((canvas) => {
+    html2canvas(certificate,{
+      quality:4,
+      scale:4
+    }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("landscape", "px", "a4");
       const imgProps = pdf.getImageProperties(imgData);
