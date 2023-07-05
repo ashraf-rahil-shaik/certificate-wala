@@ -167,6 +167,19 @@ h5{
     font-size: 1em;
     cursor: pointer;
   }
+  .download-button-all{
+    
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: rgba(235, 151, 34, 0.879);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+  }
   
   .end{
     display: flex;

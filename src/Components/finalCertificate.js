@@ -245,7 +245,7 @@ function FinalCertificate() {
       <h1>Certificate Generator</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="excelFile" className="upload">
-          Upload Excel File:
+          Upload Excel File
         </label>
         <input
           id="excelFile"
@@ -259,8 +259,14 @@ function FinalCertificate() {
 
       {isCertificateVisible && (
         <div className="container_body">
+             <div className="download-all-container">
+            <button onClick={handleDownloadAll} className="download-button-all">
+              Download All Certificates
+            </button>
+          </div>
           {excelData.map((row, index) => (
             <>
+          
             <div key={index} id={`certificate-${index}`} className="certificate-container2">
               <div className="header-container">
                 <h1 className="student-name">{row[0]}</h1> {/* Assuming Name is in the first column */}
@@ -285,11 +291,7 @@ function FinalCertificate() {
            </button>
            </>
           ))}
-          <div className="download-all-container">
-            <button onClick={handleDownloadAll} className="download-button">
-              Download All Certificates
-            </button>
-          </div>
+         
         </div>
       )}
     </div>
