@@ -155,13 +155,15 @@ import * as XLSX from "xlsx";
 function FinalCertificate() {
   const [excelData, setExcelData] = useState([]);
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const certificatesPerPage = 20;
 
   function createPDFObject(certificateName, index) {
     const certificate = document.getElementById(`certificate-${index}`);
 
-    html2canvas(certificate,{
-      quality:4,
-      scale:4
+    html2canvas(certificate, {
+      quality: 2,
+      scale: 4
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("landscape", "px", "a4");
@@ -183,6 +185,7 @@ function FinalCertificate() {
       return;
     }
     setIsCertificateVisible(true);
+    setCurrentPage(1);
   };
 
   const handleExcelUpload = (event) => {
@@ -207,7 +210,7 @@ function FinalCertificate() {
         // Replace the date values in the row with the formatted dates
         row[2] = startDate;
         row[3] = endDate;
-        row[4]=dataOfIssue;
+        row[4] = dataOfIssue;
 
         return row;
       });
@@ -233,57 +236,88 @@ function FinalCertificate() {
     return `${day}-${month}-${year}`;
   };
 
+
   const handleDownloadAll = () => {
-    excelData.forEach((row, index) => {
-      const certificateName = row[0]; // Assuming Name is in the first column
-      createPDFObject(certificateName, index);
+    const pdf = new jsPDF("landscape", "px", "a4");
+    const downloadPromises = [];
+  
+    currentCertificates.forEach((row, index) => {
+      const certificateName = row[0];
+      const promise = new Promise((resolve) => {
+        createPDFObject(certificateName, index, pdf, resolve);
+      });
+      downloadPromises.push(promise);
+    });
+  
+    Promise.all(downloadPromises).then(() => {
+      const fileName = "page_certificates.pdf";
+      pdf.save(fileName);
     });
   };
+  
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calculate index of the first and last certificate to be displayed on the current page
+  const indexOfLastCertificate = currentPage * certificatesPerPage;
+  const indexOfFirstCertificate = indexOfLastCertificate - certificatesPerPage;
+  const currentCertificates = excelData.slice(indexOfFirstCertificate, indexOfLastCertificate);
 
   return (
     <div className="body">
-      <h1>Certificate Generator</h1>
+      <h1>Certificate </h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="excelFile" className="upload">
           Upload Excel File
         </label>
-        <input
-          id="excelFile"
-          type="file"
-          accept=".xlsx"
-          onChange={handleExcelUpload}
-          required
-        />
+        <input id="excelFile" type="file" accept=".xlsx" onChange={handleExcelUpload} required />
         <button type="submit">Generate Certificates</button>
       </form>
 
       {isCertificateVisible && (
         <div className="container_body">
-             <div className="download-all-container">
+          <div className="download-all-container">
             <button onClick={handleDownloadAll} className="download-button-all">
               Download All Certificates
             </button>
+            <div className="pagination">
+            {excelData.length > certificatesPerPage && (
+              <div>
+                {Array.from(Array(Math.ceil(excelData.length / certificatesPerPage)).keys()).map((pageNumber) => (
+                  <button
+                    key={pageNumber + 1}
+                    className={currentPage === pageNumber + 1 ? "active" : ""}
+                    onClick={() => handlePageChange(pageNumber + 1)}
+                  
+                  >
+                    {pageNumber + 1}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-          {excelData.map((row, index) => (
+          </div>
+          {currentCertificates.map((row, index) => (
             <>
-          
             <div key={index} id={`certificate-${index}`} className="certificate-container2">
               <div className="header-container">
                 <h1 className="student-name">{row[0]}</h1> {/* Assuming Name is in the first column */}
                 <p className="description">Has Successfully Completed 15 Weeks Internship</p>
                 <p className="time">
-                  on <b>{row[1]} </b> from <b>{row[2]}</b> to <b>{row[3]}</b>
-                </p> {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
+                  on <b>{row[1]}</b> from <b>{row[2]}</b> to <b>{row[3]}</b>
+                </p>
+                {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
                 <div className="end">
                   <p>
-                    Date of Issue:<b>{row[4]} </b>
+                    Date of Issue: <b>{row[4]}</b>
                     <br />
-                    Certificate Number: <b>{row[5]}</b>
+                    Certificate No: <b>{row[5]}</b>
                   </p>
-                </div>{" "}
-                {/* Assuming Date of Issue is in the fifth column andCertificate Number is in the sixth column */}
+                </div>
+                {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
               </div>
-             
              
             </div>
              <button onClick={() => createPDFObject(row[0], index)} className="download-button">
@@ -291,7 +325,7 @@ function FinalCertificate() {
            </button>
            </>
           ))}
-         
+        
         </div>
       )}
     </div>
@@ -299,6 +333,7 @@ function FinalCertificate() {
 }
 
 export default FinalCertificate;
+
 
 
 
