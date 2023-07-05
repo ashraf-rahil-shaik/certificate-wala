@@ -160,19 +160,19 @@ function FinalCertificate() {
 
   function createPDFObject(certificateName, index) {
     const certificate = document.getElementById(`certificate-${index}`);
-
+  
     html2canvas(certificate, {
-      quality: 2,
-      scale: 4
+      quality: 0.8, // Adjust the quality value
+      scale: 2 // Adjust the scale value
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("landscape", "px", "a4");
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
+  
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-
+  
       const fileName = `${certificateName}_certificate.pdf`;
       pdf.save(fileName);
     });
@@ -303,7 +303,7 @@ function FinalCertificate() {
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container2">
               <div className="header-container">
-                <h1 className="student-name">{row[0]}</h1> {/* Assuming Name is in the first column */}
+                <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
                 <p className="description">Has Successfully Completed 15 Weeks Internship</p>
                 <p className="time">
                   on <b>{row[1]}</b> from <b>{row[2]}</b> to <b>{row[3]}</b>
