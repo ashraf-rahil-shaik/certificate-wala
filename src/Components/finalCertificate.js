@@ -151,12 +151,14 @@ import jsPDF from "jspdf";
 import "./finalCertificate.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
+import Header2 from "./Header2";
+
 
 function FinalCertificate() {
   const [excelData, setExcelData] = useState([]);
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const certificatesPerPage = 20;
+  const certificatesPerPage = 10;
 
   function createPDFObject(certificateName, index) {
     const certificate = document.getElementById(`certificate-${index}`);
@@ -267,6 +269,8 @@ function FinalCertificate() {
 
   return (
     <div className="body">
+      <Header2/>
+
       <h1>Certificate </h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="excelFile" className="upload">
