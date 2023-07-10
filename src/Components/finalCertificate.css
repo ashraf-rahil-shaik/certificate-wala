@@ -82,7 +82,20 @@ li{
   font-weight: 400;
   list-style: none;
 }
+.sign{
+  width:100px;
+  height:100px;
+  left:400px;
+  position: relative;
+  bottom: 120px;
+  align-items: right;
+  display: block;
+}
 
+.signs{
+  display: flex;
+justify-content: center;
+}
   @media print {
     body * {
       visibility: hidden;

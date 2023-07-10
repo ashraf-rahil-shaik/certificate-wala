@@ -319,11 +319,17 @@ function FinalCertificate() {
                     <br />
                     Certificate No: <b>{row[5]}</b>
                   </p>
-                </div>
+                  
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
-              </div>
              
+             </div>
+             
+            
+                  </div>
             </div>
+            
+             
+          
              <button onClick={() => createPDFObject(row[0], index)} className="download-button">
              Download Certificate
            </button>
