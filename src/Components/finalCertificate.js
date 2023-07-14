@@ -164,10 +164,12 @@ function FinalCertificate() {
     const certificate = document.getElementById(`certificate-${index}`);
   
     html2canvas(certificate, {
-      quality: 10, // Adjust the quality value
-      scale: 2 // Adjust the scale value
+      quality: 4, // Adjust the quality value
+      scale: 2 ,
+      useCORS: true,
+      // Adjust the scale value
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
+      const imgData = canvas.toDataURL("image/png", 1.0);
       const pdf = new jsPDF("landscape", "px", "a4");
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -240,7 +242,8 @@ function FinalCertificate() {
 
 
   const handleDownloadAll = () => {
-    const pdf = new jsPDF("landscape", "px", "a4");
+    const pdf = new jsPDF("landscape", "px", "a4", true, "pt", "", false, 300);
+
     const downloadPromises = [];
   
     currentCertificates.forEach((row, index) => {
@@ -306,9 +309,10 @@ function FinalCertificate() {
           {currentCertificates.map((row, index) => (
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container2">
+           
               <div className="header-container">
                 <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
-                <p className="description">Has Successfully Completed 15 Weeks Internship</p>
+                <p className="description">Has Successfully Completed {row[6]} Weeks Internship</p>
                 <p className="time">
                   on <b>{row[1]}</b> from <b>{row[2]}</b> to <b>{row[3]}</b>
                 </p>
@@ -352,6 +356,9 @@ function FinalCertificate() {
 }
 
 export default FinalCertificate;
+
+
+
 
 
 
