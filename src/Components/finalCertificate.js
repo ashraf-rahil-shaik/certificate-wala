@@ -164,7 +164,7 @@ function FinalCertificate() {
     const certificate = document.getElementById(`certificate-${index}`);
   
     html2canvas(certificate, {
-      quality: 0.8, // Adjust the quality value
+      quality: 10, // Adjust the quality value
       scale: 2 // Adjust the scale value
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
@@ -320,12 +320,21 @@ function FinalCertificate() {
                     Certificate No: <b>{row[5]}</b>
                   </p>
                   
+              
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
-             
+               
+                <div className="names">
+              <div>     <b className="chair">Sunil Kumar Deva</b>
+             <p><i>Chairman-GlobalOne Services</i></p></div>
+        <div>   <b className="chair">Kishore Kumar</b>
+             <p><i>Founder & Director-TriaRight</i></p></div>
+         
              </div>
-             
+             </div>
+            
             
                   </div>
+                  
             </div>
             
              

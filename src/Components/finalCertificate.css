@@ -10,7 +10,7 @@
   flex-direction: column;
   /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../images/A4-8.jpg');
+  background-image:url('../images/A4-7.jpg');
   background-repeat:no-repeat;
   background-size: cover;
   gap:20px;
@@ -200,7 +200,7 @@ h5{
    flex-direction: column;
    position: relative;
    bottom:  20px ;
-   right: 220px;
+   right: 130px;
   height: 90PX;
   
   }
@@ -231,7 +231,7 @@ margin-top: 30px;
 }
 
 .pagination button.active {
-  background-color: #ce7337;
+  background-color: #d87735;
   color: white;
 }
 .spinner::before {
@@ -293,3 +293,22 @@ margin-top: 30px;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.names{
+  display: flex;
+  position: relative;
+  bottom: 40px;
+ align-items: center;
+ align-content: center;
+ justify-content: space-evenly;
+ left: 250px;
+ line-height: 4px;
+ gap: 48px;
+ 
+}
+
+.chair{
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+
