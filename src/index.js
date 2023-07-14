@@ -15,6 +15,7 @@ import MedicalCoding from './Components/MedicalCoding/MedicalCoding';
 import Tally from './Components/Tally/Tally';
 import Python from './Components/Python/Python';
 import FinalCertificate from './Components/finalCertificate';
+import HCertificate from './Components/hCertificate';
 
 
 
@@ -34,6 +35,7 @@ root.render(
              
              <Route path='/Certificate' element={<CertificateForm/>}/>  
              <Route path='/finalCertificate' element={<FinalCertificate/>}/>  
+             <Route path='/hCertificate' element={<HCertificate/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
              <Route path='/java' element={<Java/>}  />
              <Route path='/wt' element={<WebTech/>}  />

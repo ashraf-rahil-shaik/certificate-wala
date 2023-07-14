@@ -1,50 +1,63 @@
 
-.certificate-container2 {
+.certificate-container3 {
     
     position: relative;
-  width: 852px;
-    height: 609px;
+  width: 595px;
+    height: 842px;
   display: flex;
   justify-content: center;
   
   flex-direction: column;
   /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../images/A4-5.png');
+  background-image:url('../images/A4-10.jpg');
   background-repeat:no-repeat;
   background-size: cover;
-  gap:20px;
+
   flex-wrap: wrap;
+
   
 }
 
-
-  .student-name{
+.student-details{
+ 
+    font-family: 'Lexend', sans-serif;
+    letter-spacing: 1.5px;
+    font-weight:600;
+font-size: 14px;
+position: relative;
+}
+  .student-name2{
     display: flex;
     justify-content: center;
 height: 110px;
 position: relative;
 align-items: flex-end;
     width: 100%;
-bottom: 38px;
+bottom: 25px;
+font-size: 26px;
   }
-  .description{
-    position: relative;
- bottom: 70px;
+  .descriptions{
+ 
     font-family: 'Lexend', sans-serif;
-    letter-spacing: 3.5px;
-    font-weight:700;
-font-size: 19px;
+    letter-spacing: 1.5px;
+    font-weight:600;
+font-size: 14px;
+position: relative;
+bottom: 40px;
   }
-  .time{
-    position: relative;
+  .times{
+
        font-family: 'Lexend', sans-serif;
        bottom: 100px;
-       font-weight: 550;
-   font-size: 1.2rem;
+       font-weight: 600;
+       letter-spacing: 1.5px;
+   font-size: 14px;
+   position: relative;
+bottom: 60px;
   }
   b{
-    font-weight: 900;
+    font-weight: 800;
     font-style: bold;
   }
   
@@ -53,13 +66,13 @@ font-size: 19px;
   }
  
   
-  .header-container {
+  .header-container2 {
     position: relative;
-    top:160px;
+    top:150px;
   display: flex;
 flex-direction: column;
   align-items: center;
-  align-content: first baseline;
+  
   }
   
 
@@ -91,6 +104,15 @@ li{
   align-items: right;
   display: block;
 }
+.college-name{
+  font-family: 'Lexend', sans-serif;
+position: relative;
+bottom: 20px;
+  font-weight: 700;
+font-size: 14px;
+letter-spacing: 1.5px;
+}
+
 
 .signs{
   display: flex;
@@ -194,20 +216,24 @@ h5{
     cursor: pointer;
   }
   
-  .end{
+  .ends{
     display: flex;
 
    flex-direction: column;
    position: relative;
-   bottom:  20px ;
-   right: 130px;
+   top:20px;
+   right: 190px;
   height: 90PX;
   
+  }
+
+  .ends p{
+font-size: 11px;
   }
 .container_body{
 background-color:rgb(5, 12, 88);
 display: flex;
-gap: 50px;
+
 flex-wrap: wrap;
 padding: 50px;
 flex-direction: column;
@@ -288,6 +314,15 @@ margin-top: 30px;
   height: 24px;
   animation: spin 1s linear infinite;
 }
+.main-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 50px;
+
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -295,14 +330,14 @@ margin-top: 30px;
 }
 .names{
   display: flex;
+  flex-direction: column;
   position: relative;
   bottom: 40px;
- align-items: center;
- align-content: center;
- justify-content: space-evenly;
- left: 250px;
- line-height: 4px;
- gap: 48px;
+ gap: 2px;
+ justify-content:center;
+ left: 370px;
+ height: 40px;
+ 
  
 }
 
