@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
-import "./hCertificate.css";
+import "./vCertificate.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "./Header2";
 
 
-function HCertificate() {
+function VCertificate() {
   const [excelData, setExcelData] = useState([]);
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -213,4 +213,4 @@ function HCertificate() {
   );
 }
 
-export default HCertificate;
+export default VCertificate;

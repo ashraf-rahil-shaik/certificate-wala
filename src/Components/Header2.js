@@ -25,7 +25,7 @@ const Header2 = () => {
             
                 <div className='sub-menu'>
                   <h4>h certificate</h4>
-                  <Link to="/hCertificate"><li>h Certificate</li></Link>
+                  <Link to="/vCertificate"><li>vertical Certificate</li></Link>
                   </div>
                 <div className="sub-menu">
                   <h4>IT</h4>
