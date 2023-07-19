@@ -152,6 +152,7 @@ import "./finalCertificate.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "./Header2";
+import QRCode from "qrcode.react"; 
 
 
 function FinalCertificate() {
@@ -181,7 +182,12 @@ function FinalCertificate() {
       pdf.save(fileName);
     });
   }
+  const qrCodeStyle = {
+    width: "60px",
+    height: "60px",
 
+  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (excelData.length === 0) {
@@ -309,7 +315,7 @@ function FinalCertificate() {
           {currentCertificates.map((row, index) => (
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container2">
-           
+          
               <div className="header-container">
                 <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
                 <p className="description">Has Successfully Completed {row[6]} Weeks Internship</p>
@@ -318,6 +324,9 @@ function FinalCertificate() {
                 </p>
                 {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
                 <div className="end">
+                <div className="qr-code-container">
+                  <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed ${row[6]} Weeks Internship On ${row[1]}\nDate of Issue:${row[4]}\nCertificate No:${row[5]}` } style={qrCodeStyle} />
+                </div>
                   <p>
                     Date of Issue: <b>{row[4]}</b>
                     <br />
@@ -328,10 +337,10 @@ function FinalCertificate() {
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
                
                 <div className="names">
-              <div>     <b className="chair">Sunil Kumar Deva</b>
-             <p><i>Chairman-GlobalOne Services</i></p></div>
-        <div>   <b className="chair">Kishore Kumar</b>
-             <p><i>Founder & Director-TriaRight</i></p></div>
+              <div>    <p> <b className="chair">Sunil Kumar Deva</b>
+             <br/><i>Chairman-GlobalOne Services</i></p></div>
+        <div>  <p className="kish"> <b className="chair">Kishore Kumar</b><br/>
+             <i>Founder & Director-TriaRight</i></p></div>
          
              </div>
              </div>

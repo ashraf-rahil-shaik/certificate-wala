@@ -22,9 +22,13 @@ const Header2 = () => {
                   <h4>final certificate</h4>
                   <Link to="/finalCertificate"><li>finalCertificate</li></Link>
                   </div>
+                <div className='sub-menu'>
+                  <h4>without Qr certificate</h4>
+                  <Link to="/withoutQr"><li>withoutQr</li></Link>
+                  </div>
             
                 <div className='sub-menu'>
-                  <h4>h certificate</h4>
+                  <h4>v certificate</h4>
                   <Link to="/vCertificate"><li>vertical Certificate</li></Link>
                   </div>
                 <div className="sub-menu">

@@ -34,8 +34,20 @@ height: 110px;
 position: relative;
 align-items: flex-end;
     width: 100%;
-bottom: 25px;
+top:25px;
 font-size: 26px;
+  }
+
+
+  .overall{
+    
+    font-family: 'Lexend', sans-serif;
+  
+    font-weight:600;
+font-size: 14px;
+position: relative;
+text-align: center;
+bottom: 60px;
   }
   .descriptions{
  
@@ -221,11 +233,25 @@ h5{
 
    flex-direction: column;
    position: relative;
-   top:20px;
+   top:10px;
    right: 190px;
   height: 90PX;
   
   }
+
+.address-office{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+top:30px;
+position: relative;
+}
+
+.address-office p{
+  font-size: 10px;
+  font-weight: 600;
+}
 
   .ends p{
 font-size: 11px;
@@ -300,27 +326,15 @@ margin-top: 30px;
   text-align: center;
 }
 
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
-.loading-animation {
-  display: inline-block;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
-}
+
+
 .main-details{
   display: flex;
   flex-direction: column;
   justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 50px;
+    
 
 }
 
@@ -328,20 +342,18 @@ margin-top: 30px;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-.names{
+.named{
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 40px;
- gap: 2px;
+  bottom: 60px;
  justify-content:center;
  left: 370px;
  height: 40px;
- 
- 
 }
 
-.chair{
+
+.chairs{
   font-size: 1.15rem;
   font-weight: 700;
 }

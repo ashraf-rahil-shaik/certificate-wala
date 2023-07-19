@@ -16,6 +16,7 @@ import Tally from './Components/Tally/Tally';
 import Python from './Components/Python/Python';
 import FinalCertificate from './Components/finalCertificate';
 import VCertificate from './Components/vCertificate';
+import WithoutQr from './Components/withoutQr';
 
 
 
@@ -36,6 +37,7 @@ root.render(
              <Route path='/Certificate' element={<CertificateForm/>}/>  
              <Route path='/finalCertificate' element={<FinalCertificate/>}/>  
              <Route path='/vCertificate' element={<VCertificate/>}/>  
+             <Route path='/withoutQr' element={<WithoutQr/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
              <Route path='/java' element={<Java/>}  />
              <Route path='/wt' element={<WebTech/>}  />

@@ -194,12 +194,12 @@ h5{
     cursor: pointer;
   }
   
-  .end{
+  .ended{
     display: flex;
 
    flex-direction: column;
    position: relative;
-   bottom:  80px ;
+   bottom:  20px ;
    right: 110px;
   height: 90PX;
   

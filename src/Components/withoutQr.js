@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
-import "./vCertificate.css";
+import "./withoutQr.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "./Header2";
-// import QRCode from "qrcode.react"; 
 
 
-function VCertificate() {
+
+function WithoutQr() {
   const [excelData, setExcelData] = useState([]);
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const certificatesPerPage = 10;
 
-  const createPDFObject = (certificateName, index) => {
+  function createPDFObject(certificateName, index) {
     const certificate = document.getElementById(`certificate-${index}`);
   
     html2canvas(certificate, {
       quality: 4, // Adjust the quality value
-      scale: 3,
-      
+      scale: 2 ,
+      useCORS: true,
       // Adjust the scale value
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png", 1.0);
-      const pdf = new jsPDF("portrait", "px", "a4"); // Set the orientation to portrait
+      const pdf = new jsPDF("landscape", "px", "a4");
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
@@ -33,9 +33,9 @@ function VCertificate() {
       const fileName = `${certificateName}_certificate.pdf`;
       pdf.save(fileName);
     });
-  };
-  
+  }
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (excelData.length === 0) {
@@ -62,13 +62,13 @@ function VCertificate() {
 
       const formattedData = jsonData.map((row) => {
         // Assuming the date columns are at index 1 (start date) and index 2 (end date)
-        const startDate = formatDate(row[7]);
-        const endDate = formatDate(row[8]);
-        const dataOfIssue = formatDate(row[9]);
+        const startDate = formatDate(row[2]);
+        const endDate = formatDate(row[3]);
+        const dataOfIssue = formatDate(row[4]);
         // Replace the date values in the row with the formatted dates
-        row[7] = startDate;
-        row[8] = endDate;
-        row[9] = dataOfIssue;
+        row[2] = startDate;
+        row[3] = endDate;
+        row[4] = dataOfIssue;
 
         return row;
       });
@@ -96,8 +96,8 @@ function VCertificate() {
 
 
   const handleDownloadAll = () => {
-    const pdf = new jsPDF("portrait", "px", "a4", true, "pt", "", false, 300); // Set the orientation to portrait
-  
+    const pdf = new jsPDF("landscape", "px", "a4", true, "pt", "", false, 300);
+
     const downloadPromises = [];
   
     currentCertificates.forEach((row, index) => {
@@ -113,7 +113,6 @@ function VCertificate() {
       pdf.save(fileName);
     });
   };
-  
   
 
   const handlePageChange = (pageNumber) => {
@@ -163,51 +162,35 @@ function VCertificate() {
           </div>
           {currentCertificates.map((row, index) => (
             <>
-            <div key={index} id={`certificate-${index}`} className="certificate-container3">
-           
-              <div className="header-container2">
-               
-                   <h1 className="student-name2">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
-                   <div className="main-details">
-               <p className="student-details">Of {row[1]} With Registered No.{row[2]} Of</p>
-               <p className="college-name">{row[3]}</p>
-                <p className="descriptions">Has Successfully Completed {row[4]} Semister {row[5]} Term Internship</p>
-                <p className="times">
-                  on  <b>{row[6]}</b>  from  <b>{row[7]}</b> to <b>{row[8]}</b>
+            <div key={index} id={`certificate-${index}`} className="certificate-container2">
+          
+              <div className="header-container">
+                <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
+                <p className="description">Has Successfully Completed {row[6]} Weeks Internship</p>
+                <p className="time">
+                  on <b>{row[1]}</b> from <b>{row[2]}</b> to <b>{row[3]}</b>
                 </p>
-                <p className="overall">The Overall Performance of the intern his/her Internship Is Found To Be Satisfactory</p>
-                </div>
-               
                 {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
-                {/* <div className="qr-code-container">
-                  <QRCode value={`Student: ${row[0]}\nCollege: ${row[3]}\nReg No: ${row[2]}`} />
-                </div> */}
-                <div className="ends">
+                <div className="ended">
+               
                   <p>
-                    Date of Issue: <b>{row[9]}</b>
+                    Date of Issue: <b>{row[4]}</b>
                     <br />
-                    Certificate No: <b>{row[10]}</b>
-                    <br />
-                    Mail: <b>kk@triaright.com</b>
-                    <br/>
-                    Contact: <b>9848627750</b>
+                    Certificate No: <b>{row[5]}</b>
                   </p>
-                  
                   
               
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
                
-                <div className="named">
-            
-         <p> <b className="chairs">Kishore Kumar</b>
-         <br/>
+                <div className="names">
+              <div>    <p> <b className="chair">Sunil Kumar Deva</b>
+             <br/><i>Chairman-GlobalOne Services</i></p></div>
+        <div>  <p className="kish"> <b className="chair">Kishore Kumar</b><br/>
              <i>Founder & Director-TriaRight</i></p></div>
          
-             
              </div>
-            <div className="address-office">
-            <p>Address:#7-1-58, 404 B, 4th floor, Surekha <br/>Chambers, Ameerpet, <br/>Hyderabad,Telangana-500016</p>
-            </div>
+             </div>
+            
             
                   </div>
                   
@@ -227,4 +210,4 @@ function VCertificate() {
   );
 }
 
-export default VCertificate;
+export default WithoutQr;
