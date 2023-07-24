@@ -19,17 +19,21 @@ const Header2 = () => {
 
               <div className="dropdown-content">
                 <div className='sub-menu'>
-                  <h4>final certificate</h4>
-                  <Link to="/finalCertificate"><li>finalCertificate</li></Link>
+                  <h4>with QR</h4>
+                  <Link to="/finalCertificate"><li>with QR</li></Link>
                   </div>
                 <div className='sub-menu'>
-                  <h4>without Qr certificate</h4>
-                  <Link to="/withoutQr"><li>withoutQr</li></Link>
+                  <h4>without Qr</h4>
+                  <Link to="/withoutQr"><li>without Qr</li></Link>
                   </div>
             
                 <div className='sub-menu'>
-                  <h4>v certificate</h4>
-                  <Link to="/vCertificate"><li>vertical Certificate</li></Link>
+                  <h4>portrait</h4>
+                  <Link to="/vCertificate"><li>portrait</li></Link>
+                  </div>
+                <div className='sub-menu'>
+                  <h4>Course Complition</h4>
+                  <Link to="/CourseComplition"><li>Course Complition</li></Link>
                   </div>
                 <div className="sub-menu">
                   <h4>IT</h4>

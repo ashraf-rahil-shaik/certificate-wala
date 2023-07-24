@@ -14,9 +14,10 @@ import DigitalMarketing from './Components/DigitalMarketing/DigitalMarketing';
 import MedicalCoding from './Components/MedicalCoding/MedicalCoding';
 import Tally from './Components/Tally/Tally';
 import Python from './Components/Python/Python';
-import FinalCertificate from './Components/finalCertificate';
-import VCertificate from './Components/vCertificate';
-import WithoutQr from './Components/withoutQr';
+import FinalCertificate from './Components/finalCertificates/finalCertificate';
+import VCertificate from './Components/finalCertificates/vCertificate';
+import WithoutQr from './Components/finalCertificates/withoutQr';
+import CourseComplition from './Components/finalCertificates/courseComplition';
 
 
 
@@ -38,6 +39,7 @@ root.render(
              <Route path='/finalCertificate' element={<FinalCertificate/>}/>  
              <Route path='/vCertificate' element={<VCertificate/>}/>  
              <Route path='/withoutQr' element={<WithoutQr/>}/>  
+             <Route path='/coursecomplition' element={<CourseComplition/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
              <Route path='/java' element={<Java/>}  />
              <Route path='/wt' element={<WebTech/>}  />
