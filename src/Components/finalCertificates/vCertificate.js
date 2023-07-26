@@ -171,7 +171,7 @@ function VCertificate() {
                    <div className="main-details">
                <p className="student-details">Of {row[1]} With Registered No.{row[2]} Of</p>
                <p className="college-name">{row[3]}</p>
-                <p className="descriptions">Has Successfully Completed {row[4]} Semister {row[5]} Term Internship</p>
+                <p className="descriptions2">Has Successfully Completed {row[4]} Semister {row[5]} Term Internship</p>
                 <p className="times">
                   on  <b>{row[6]}</b>  from  <b>{row[7]}</b> to <b>{row[8]}</b>
                 </p>

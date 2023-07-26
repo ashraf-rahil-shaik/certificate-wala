@@ -172,7 +172,7 @@ function CourseComplition() {
 THIS CERTIFICATE PROUDLY PRESENTED TO
 </div>
 <div className="std-name">
-<h1 className="student-name2">{row[0].toUpperCase()}</h1></div>
+<h1 className="student-name3">{row[0].toUpperCase()}</h1></div>
 
 
           </div>

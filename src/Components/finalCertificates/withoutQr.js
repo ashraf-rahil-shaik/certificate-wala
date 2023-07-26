@@ -162,7 +162,7 @@ function WithoutQr() {
           </div>
           {currentCertificates.map((row, index) => (
             <>
-            <div key={index} id={`certificate-${index}`} className="certificate-container3">
+            <div key={index} id={`certificate-${index}`} className="certificate-container5">
           
               <div className="header-container">
                 <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
