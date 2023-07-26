@@ -167,7 +167,7 @@ function VCertificate() {
            
               <div className="header-container2">
                
-                   <h1 className="student-name2">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
+                   <h1 className="student-name6">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
                    <div className="main-details">
                <p className="student-details">Of {row[1]} With Registered No.{row[2]} Of</p>
                <p className="college-name">{row[3]}</p>
@@ -182,7 +182,7 @@ function VCertificate() {
                 {/* <div className="qr-code-container">
                   <QRCode value={`Student: ${row[0]}\nCollege: ${row[3]}\nReg No: ${row[2]}`} />
                 </div> */}
-                <div className="ends">
+                <div className="ends2">
                   <p>
                     Date of Issue: <b>{row[9]}</b>
                     <br />

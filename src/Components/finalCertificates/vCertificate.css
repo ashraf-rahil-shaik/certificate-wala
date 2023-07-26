@@ -10,7 +10,7 @@
   flex-direction: column;
   /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../../images/A4-10.jpg');
+  background-image:url('../../images/A4-95.jpg');
   background-repeat:no-repeat;
   background-size: cover;
 
@@ -27,14 +27,14 @@
 font-size: 14px;
 position: relative;
 }
-  .student-name2{
+  .student-name6{
     display: flex;
     justify-content: center;
 height: 110px;
 position: relative;
 align-items: flex-end;
     width: 100%;
-top:25px;
+top:15px;
 font-size: 26px;
   }
 
@@ -228,7 +228,7 @@ h5{
     cursor: pointer;
   }
   
-  .ends{
+  .ends2{
     display: flex;
 
    flex-direction: column;
