@@ -18,7 +18,7 @@ function WithoutQr() {
   
     html2canvas(certificate, {
       quality: 4, // Adjust the quality value
-      scale: 2 ,
+      scale: 3 ,
       useCORS: true,
       // Adjust the scale value
     }).then((canvas) => {
@@ -165,13 +165,13 @@ function WithoutQr() {
             <div key={index} id={`certificate-${index}`} className="certificate-container5">
           
               <div className="header-container">
-                <h1 className="student-name">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
+                <h1 className="student-name4">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
                 <p className="description">Has Successfully Completed {row[6]} Weeks Internship</p>
                 <p className="time">
                   on <b>{row[1]}</b> from <b>{row[2]}</b> to <b>{row[3]}</b>
                 </p>
                 {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
-                <div className="ended">
+                <div className="ended2">
                
                   <p>
                     Date of Issue: <b>{row[4]}</b>
