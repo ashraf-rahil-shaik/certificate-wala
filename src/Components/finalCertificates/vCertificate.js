@@ -174,7 +174,7 @@ function VCertificate() {
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container3">
             <div className="qr-code-container2">
-              <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed ${row[6]} Weeks Internship On ${row[1]}\nDate of Issue:${row[4]}\nCertificate No:${row[5]}` } style={qrCodeStyle} />
+              <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed ${row[4]} Weeks Internship On ${row[6]}\nDate of Issue:${row[9]}\nCertificate No:${row[10]}` } style={qrCodeStyle} />
                 </div>
               <div className="header-container2">
              
