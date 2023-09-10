@@ -280,7 +280,7 @@ function FinalCertificate() {
     <div className="body">
       <Header2/>
 
-      <h1>Course Complition Certificate </h1>
+      <h1>Course Completion Certificate </h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="excelFile" className="upload">
           Upload Excel File

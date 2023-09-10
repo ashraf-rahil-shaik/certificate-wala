@@ -4,7 +4,8 @@ import "./vCertificate.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "../Header2";
-// import QRCode from "qrcode.react"; 
+import QRCode from "qrcode.react"; 
+
 
 
 function VCertificate() {
@@ -12,6 +13,14 @@ function VCertificate() {
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const certificatesPerPage = 10;
+
+
+
+  const qrCodeStyle = {
+    width: "65px",
+    height: "65px",
+
+  };
 
   const createPDFObject = (certificateName, index) => {
     const certificate = document.getElementById(`certificate-${index}`);
@@ -164,9 +173,11 @@ function VCertificate() {
           {currentCertificates.map((row, index) => (
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container3">
-           
+            <div className="qr-code-container2">
+              <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed ${row[6]} Weeks Internship On ${row[1]}\nDate of Issue:${row[4]}\nCertificate No:${row[5]}` } style={qrCodeStyle} />
+                </div>
               <div className="header-container2">
-               
+             
                    <h1 className="student-name6">{row[0].toUpperCase()}</h1> {/* Assuming Name is in the first column */}
                    <div className="main-details">
                <p className="student-details">Of {row[1]} With Registered No.{row[2]} Of</p>
@@ -179,9 +190,7 @@ function VCertificate() {
                 </div>
                
                 {/* Assuming Start Date is in the third column and End Date is in the fourth column */}
-                {/* <div className="qr-code-container">
-                  <QRCode value={`Student: ${row[0]}\nCollege: ${row[3]}\nReg No: ${row[2]}`} />
-                </div> */}
+                
                 <div className="ends2">
                   <p>
                     Date of Issue: <b>{row[9]}</b>
