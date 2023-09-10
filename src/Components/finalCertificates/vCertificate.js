@@ -27,7 +27,7 @@ function VCertificate() {
   
     html2canvas(certificate, {
       quality: 4, // Adjust the quality value
-      scale: 3,
+      scale: 4,
       
       // Adjust the scale value
     }).then((canvas) => {
