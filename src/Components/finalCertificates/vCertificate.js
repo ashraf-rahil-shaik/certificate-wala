@@ -5,7 +5,8 @@ import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "../Header2";
 import QRCode from "qrcode.react"; 
-
+import img from "../../images/main-logo.png";
+import sign from "../../images/main-logo2.png";
 
 
 function VCertificate() {
@@ -19,6 +20,8 @@ function VCertificate() {
   const qrCodeStyle = {
     width: "65px",
     height: "65px",
+    position: "relative",
+    bottom:"65px"
 
   };
 
@@ -156,6 +159,7 @@ function VCertificate() {
             <div className="pagination">
             {excelData.length > certificatesPerPage && (
               <div>
+            
                 {Array.from(Array(Math.ceil(excelData.length / certificatesPerPage)).keys()).map((pageNumber) => (
                   <button
                     key={pageNumber + 1}
@@ -173,8 +177,9 @@ function VCertificate() {
           {currentCertificates.map((row, index) => (
             <>
             <div key={index} id={`certificate-${index}`} className="certificate-container3">
+            <img  className="main-logo" src={img} alt="logo"  />
             <div className="qr-code-container2">
-              <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed ${row[4]} Weeks Internship On ${row[6]}\nDate of Issue:${row[9]}\nCertificate No:${row[10]}` } style={qrCodeStyle} />
+              <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed Internship On ${row[6]}\nDate of Issue:${row[9]}\nCertificate No:${row[10]}` } style={qrCodeStyle} />
                 </div>
               <div className="header-container2">
              
@@ -207,7 +212,7 @@ function VCertificate() {
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
                
                 <div className="named">
-            
+             
          <p> <b className="chairs">Kishore Kumar</b>
          <br/>
              <i>Founder & Director-TriaRight</i></p></div>
