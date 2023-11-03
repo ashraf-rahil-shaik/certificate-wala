@@ -25,25 +25,19 @@ function VCertificate() {
 
   };
 
-  const createPDFObject = (certificateName, index) => {
+  const createJPGObject = (certificateName, index) => {
     const certificate = document.getElementById(`certificate-${index}`);
   
     html2canvas(certificate, {
-      quality: 4, // Adjust the quality value
-      scale: 4,
-      
-      // Adjust the scale value
+      quality: 1, // Adjust the quality value (1 is the highest quality)
+      scale: 2, // Adjust the scale value
+      useCORS: true, // Enable CORS support
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png", 1.0);
-      const pdf = new jsPDF("portrait", "px", "a4"); // Set the orientation to portrait
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-  
-      const fileName = `${certificateName}_certificate.pdf`;
-      pdf.save(fileName);
+      const imgData = canvas.toDataURL("image/jpeg");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = `${certificateName}_certificate.jpg`;
+      link.click();
     });
   };
   
@@ -107,22 +101,10 @@ function VCertificate() {
   };
 
 
-  const handleDownloadAll = () => {
-    const pdf = new jsPDF("portrait", "px", "a4", true, "pt", "", false, 300); // Set the orientation to portrait
-  
-    const downloadPromises = [];
-  
+  const handleDownloadAllJPG = () => {
     currentCertificates.forEach((row, index) => {
       const certificateName = row[0];
-      const promise = new Promise((resolve) => {
-        createPDFObject(certificateName, index, pdf, resolve);
-      });
-      downloadPromises.push(promise);
-    });
-  
-    Promise.all(downloadPromises).then(() => {
-      const fileName = "page_certificates.pdf";
-      pdf.save(fileName);
+      createJPGObject(certificateName, index);
     });
   };
   
@@ -153,9 +135,9 @@ function VCertificate() {
       {isCertificateVisible && (
         <div className="container_body">
           <div className="download-all-container">
-            <button onClick={handleDownloadAll} className="download-button-all">
-              Download All Certificates
-            </button>
+          <button onClick={handleDownloadAllJPG} className="download-button-all">
+  Download All Certificates (JPG)
+</button>
             <div className="pagination">
             {excelData.length > certificatesPerPage && (
               <div>
@@ -229,9 +211,9 @@ function VCertificate() {
             
              
           
-             <button onClick={() => createPDFObject(row[0], index)} className="download-button">
+              <button onClick={() => createJPGObject(row[0], index)} className="download-button">
              Download Certificate
-           </button>
+           </button> 
            </>
           ))}
         
