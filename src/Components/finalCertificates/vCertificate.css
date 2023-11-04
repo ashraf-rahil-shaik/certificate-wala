@@ -10,7 +10,7 @@
   flex-direction: column;
   /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../../images/A4-86.jpg');
+  background-image:url('../../images/demo2.png');
   background-repeat:no-repeat;
   background-size: cover;
 
@@ -221,7 +221,14 @@ h5{
   cursor: pointer;
   margin: 30px;
 }
+.sign-kishore{
+  width: 200px;
 
+  position: relative;
+  left:350px;
+  bottom: 310px;
+  transform: rotate(350deg);
+}
   .download-button{
     
     width: 300px;
@@ -255,11 +262,16 @@ h5{
    flex-direction: column;
    position: relative;
    top:9px;
-   right: 185px;
+   right: 165px;
   height: 90PX;
   
   }
-
+.stamp{
+  width: 100px;
+  position: relative;
+  bottom: 190px;
+  left:400px
+}
 .address-office{
   display: flex;
   justify-content: center;
@@ -367,7 +379,7 @@ margin-top: 30px;
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 60px;
+  bottom: 320px;
  justify-content:center;
  left: 370px;
  height: 40px;

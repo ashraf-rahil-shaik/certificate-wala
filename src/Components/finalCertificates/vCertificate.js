@@ -7,7 +7,8 @@ import Header2 from "../Header2";
 import QRCode from "qrcode.react"; 
 import img from "../../images/main-logo.png";
 import sign from "../../images/main-logo2.png";
-
+import stamp from "../../images/stamp (1).png"
+import signk from "../../images/kishore.png"
 
 function VCertificate() {
   const [excelData, setExcelData] = useState([]);
@@ -188,13 +189,17 @@ function VCertificate() {
                     <br/>
                     Contact: <b>9848627750</b>
                   </p>
-                  
+                  <img src={stamp} className="stamp" alt="stamp" />
+             <img src={signk} className="sign-kishore" alt="sign"/>
                   
               
                 {/* Assuming Date of Issue is in the fifth column and Certificate Number is in the sixth column */}
                
                 <div className="named">
-             
+                  
+                
+                
+          
          <p> <b className="chairs">Kishore Kumar</b>
          <br/>
              <i>Founder & Director-TriaRight</i></p></div>
