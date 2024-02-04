@@ -32,6 +32,10 @@ const Header2 = () => {
                   <Link to="/vCertificate"><li>portrait</li></Link>
                   </div>
                 <div className='sub-menu'>
+                  <h4>portrait-GBO</h4>
+                  <Link to="/vCertificate"><li>portrait-GBO</li></Link>
+                  </div>
+                <div className='sub-menu'>
                   <h4>Course Complition</h4>
                   <Link to="/CourseComplition"><li>Course Complition</li></Link>
                   </div>

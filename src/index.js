@@ -18,6 +18,7 @@ import FinalCertificate from './Components/finalCertificates/finalCertificate';
 import VCertificate from './Components/finalCertificates/vCertificate';
 import WithoutQr from './Components/finalCertificates/withoutQr';
 import CourseComplition from './Components/finalCertificates/courseComplition';
+import VCertificateGbo from './Components/finalCertificates/vCertificateGbo';
 
 
 
@@ -38,6 +39,7 @@ root.render(
              <Route path='/Certificate' element={<CertificateForm/>}/>  
              <Route path='/finalCertificate' element={<FinalCertificate/>}/>  
              <Route path='/vCertificate' element={<VCertificate/>}/>  
+             <Route path='/vCertificateGbo' element={<VCertificateGbo/>}/>  
              <Route path='/withoutQr' element={<WithoutQr/>}/>  
              <Route path='/coursecomplition' element={<CourseComplition/>}/>  
              <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
