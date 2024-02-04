@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import jsPDF from "jspdf";
+//import jsPDF from "jspdf";
 import "./vCertificateGbo.css";
 import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import Header2 from "../Header2";
 import QRCode from "qrcode.react"; 
 import img from "../../images/main-logo.png";
-import sign from "../../images/main-logo2.png";
+//import sign from "../../images/main-logo2.png";
 import stamp from "../../images/stamp (1).png"
 import signk from "../../images/kishore.png"
 
 function VCertificateGbo() {
-  const [excelData, setExcelData] = useState([]);
+  const [excelData, setExcelData] = useState([]);   
   const [isCertificateVisible, setIsCertificateVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const certificatesPerPage = 10;

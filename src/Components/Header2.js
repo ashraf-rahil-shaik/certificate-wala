@@ -33,7 +33,7 @@ const Header2 = () => {
                   </div>
                 <div className='sub-menu'>
                   <h4>portrait-GBO</h4>
-                  <Link to="/vCertificate"><li>portrait-GBO</li></Link>
+                  <Link to="/vCertificateGbo"><li>portrait-GBO</li></Link>
                   </div>
                 <div className='sub-menu'>
                   <h4>Course Complition</h4>
