@@ -7,13 +7,7 @@ import CompanyRegister from './Components/CompanyReg';
 import CollegeRegister from './Components/CollegeReg';
 import ConsultantRegister from './Components/ConsultantReg';
 import CertificateForm from './Components/Certificate/Certificate';
-import CloudComputing from './Components/CloudComputing/CloudComputing';
-import Java from './Components/Java/Java'
-import WebTech from './Components/WebTech/WebTech';
-import DigitalMarketing from './Components/DigitalMarketing/DigitalMarketing';
-import MedicalCoding from './Components/MedicalCoding/MedicalCoding';
-import Tally from './Components/Tally/Tally';
-import Python from './Components/Python/Python';
+
 import FinalCertificate from './Components/finalCertificates/finalCertificate';
 import VCertificate from './Components/finalCertificates/vCertificate';
 import WithoutQr from './Components/finalCertificates/withoutQr';
@@ -42,14 +36,7 @@ root.render(
              <Route path='/vCertificateGbo' element={<VCertificateGbo/>}/>  
              <Route path='/withoutQr' element={<WithoutQr/>}/>  
              <Route path='/coursecomplition' element={<CourseComplition/>}/>  
-             <Route path='/cloudcomputing' element={<CloudComputing/>}/>  
-             <Route path='/java' element={<Java/>}  />
-             <Route path='/wt' element={<WebTech/>}  />
-             <Route path='/digitalmarketing' element={<DigitalMarketing/>}  />
-             <Route path='/medicalcoding' element={<MedicalCoding/>}  />
-             <Route path='/tally' element={<Tally/>}  />
-             <Route path='/python' element={<Python/>}  />
-
+             
              
            </Routes>
   

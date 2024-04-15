@@ -65,7 +65,7 @@ console.log(selectedOption)
               <h4>don't have an account yet!  </h4>
               <div className="register-dropdown" onClick={handleRegisterClick}>
                 <div className="register-button">Register</div>
-                </div>
+                </div> 
                 {showDropdown && (
                   <div className="dropdown">
                     <Link to="/company" className='links'onClick={() => handleOptionSelect('company')}>

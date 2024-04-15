@@ -124,7 +124,7 @@ function VCertificateGbo() {
     <div className="body">
       <Header2/>
 
-      <h1> portrait Certificate </h1>
+      <h1> portrait Certificate- GBO</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="excelFile" className="upload">
           Upload Excel File
