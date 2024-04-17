@@ -136,7 +136,7 @@ function VCertificateGbo() {
       {isCertificateVisible && (
         <div className="container_body">
           <div className="download-all-container">
-          <button onClick={handleDownloadAllJPG} className="download-button-all">
+          <button  className="download-button-all">
   Download All Certificates (JPG)
 </button>
             <div className="pagination">
@@ -214,9 +214,9 @@ function VCertificateGbo() {
                   
             </div>
             
-             
+             {/* onClick={() => createJPGObject(row[0], index)}  */}
           
-              <button onClick={() => createJPGObject(row[0], index)} className="download-button">
+              <button  className="download-button">
              Download Certificate
            </button> 
            </>
