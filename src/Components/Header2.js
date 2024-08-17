@@ -36,6 +36,10 @@ const Header2 = () => {
                   <Link className="link" to="/vCertificateGbo">portrait-GBO</Link>
                   </div>
                 <div className='sub-menu'>
+                  <h4>portrait-BOV</h4>
+                  <Link className="link" to="/vCertificateBOV">portrait-BOV</Link>
+                  </div>
+                <div className='sub-menu'>
                   <h4>Course Complition</h4>
                   <Link className="link"  to="/CourseComplition">Course Complition</Link>
                   </div>
