@@ -159,7 +159,7 @@ function VCertificateBOV() {
           </div>
           {currentCertificates.map((row, index) => (
             <>
-            <div key={index} id={`certificate-${index}`} className="certificate-container3">
+            <div key={index} id={`certificate-${index}`} className="certificate-container4">
             <img  className="main-logo" src={img} alt="logo"  />
             <div className="qr-code-container2">
               <QRCode value={`TRIARIGHT SOLUTIONS LLP \nThis Is To Cetrify That \n${row[0].toUpperCase()}\nHas Successfully Completed Internship On ${row[6]}\nDate of Issue:${row[9]}\nCertificate No:${row[10]}` } style={qrCodeStyle} />

@@ -1,5 +1,5 @@
 
-.certificate-container3 {
+.certificate-container4 {
     
     position: relative;
   width: 595px;
@@ -10,7 +10,7 @@
   flex-direction: column;
   /* align-content: space-between; */
   padding: 0px;
-  background-image:url('../../images/demo3.png');
+  background-image:url('../../images/demo2.png');
   background-repeat:no-repeat;
   background-size: cover;
 
